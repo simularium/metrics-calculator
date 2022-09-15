@@ -1,23 +1,44 @@
-<!--
-  Thank you for submitting a pull request!
+Problem
+=======
+What is the problem this work solves, including
+[Link to story or ticket](https://my-tracking-system.url/ticket-number)
 
-  ⚠️⚠️ Please do the following before submitting: ⚠️⚠️
+Solution
+========
+What I/we did to solve this problem
 
-  - Read the CONTRIBUTING.md guide and make sure you've followed all the steps given.
-  - Ensure that the code is up-to-date with the `main` branch.
-  - Provide or update documentation for any feature added by your pull request.
-  - Provide relevant tests for your feature or bug fix.
+with @pairperson1
 
-  ❗️ Also: ❗️
+## Type of change
+Please delete options that are not relevant.
 
-  Please name your pull request {development-type}/{short-description}.
-  For example: feature/read-tiff-files
--->
+- Bug fix (non-breaking change which fixes an issue)
+- New feature (non-breaking change which adds functionality)
+- Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- This change requires a documentation update
+- This change requires updated or new tests
 
-### Link to Relevant Issue
+Change summary:
+---------------
+* Tidy, well formulated commit message
+* Another great commit message
+* Something else I/we did
 
-This pull request resolves #
+Steps to Verify:
+----------------
+1. A setup step / beginning state
+1. What to do next
+1. Any other instructions
+1. Expected behavior
+1. Suggestions for testing
 
-### Description of Changes
+Screenshots (optional):
+-----------------------
+Show-n-tell images/animations here
 
-<!-- Include a description of the proposed changes. -->
+Keyfiles (delete if not relevant):
+-----------------------
+1. main file/entry point
+2. other important file
+
+Thanks for contributing!
