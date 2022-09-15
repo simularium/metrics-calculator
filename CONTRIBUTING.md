@@ -13,12 +13,12 @@ project as it will always be the most up-to-date.
 
 Ready to contribute? Here's how to set up `simularium_metrics_calculator` for local development.
 
-1. Fork the `simularium_metrics_calculator` repo on GitHub.
+1. Fork the `metrics-calculator` repo on GitHub.
 
 2. Clone your fork locally:
 
     ```bash
-    git clone git@github.com:{your_name_here}/simularium_metrics_calculator.git
+    git clone git@github.com:{your_name_here}/metrics-calculator.git
     ```
 
 3. Install the project in editable mode. (It is also recommended to work in a virtualenv or anaconda environment):

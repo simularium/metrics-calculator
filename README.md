@@ -1,7 +1,7 @@
-# simularium_metrics_calculator
+# Simularium Metrics Calculator
 
-[![Build Status](https://github.com/simularium/simularium_metrics_calculator/workflows/CI/badge.svg)](https://github.com/simularium/simularium_metrics_calculator/actions)
-[![Documentation](https://github.com/simularium/simularium_metrics_calculator/workflows/Documentation/badge.svg)](https://simularium.github.io/simularium_metrics_calculator)
+[![Build Status](https://github.com/simularium/metrics-calculator/workflows/CI/badge.svg)](https://github.com/simularium/metrics-calculator/actions)
+[![Documentation](https://github.com/simularium/metrics-calculator/workflows/Documentation/badge.svg)](https://simularium.github.io/metrics-calculator)
 
 Calculate plot metrics from spatial agent data
 
@@ -10,7 +10,7 @@ Calculate plot metrics from spatial agent data
 ## Installation
 
 **Stable Release:** `pip install simularium_metrics_calculator`<br>
-**Development Head:** `pip install git+https://github.com/simularium/simularium_metrics_calculator.git`
+**Development Head:** `pip install git+https://github.com/simularium/metrics-calculator.git`
 
 ## Quickstart
 
@@ -22,7 +22,7 @@ print(example.str_len("hello"))  # prints 5
 
 ## Documentation
 
-For full package documentation please visit [simularium.github.io/simularium_metrics_calculator](https://simularium.github.io/simularium_metrics_calculator).
+For full package documentation please visit [simularium.github.io/metrics-calculator](https://simularium.github.io/metrics-calculator).
 
 ## Development
 

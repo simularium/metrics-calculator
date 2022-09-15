@@ -29,10 +29,10 @@ dynamic = ["version"]
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/simularium/simularium_metrics_calculator"
-"Bug Tracker" = "https://github.com/simularium/simularium_metrics_calculator/issues"
-Documentation = "https://simularium.github.io/simularium_metrics_calculator"
-"User Support" = "https://github.com/simularium/simularium_metrics_calculator/issues"
+Homepage = "https://github.com/simularium/metrics-calculator"
+"Bug Tracker" = "https://github.com/simularium/metrics-calculator/issues"
+Documentation = "https://simularium.github.io/metrics-calculator"
+"User Support" = "https://github.com/simularium/metrics-calculator/issues"
 
 # extra dependencies
 # https://peps.python.org/pep-0621/#dependencies-optional-dependencies
