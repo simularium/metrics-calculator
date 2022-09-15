@@ -1,0 +1,10 @@
+default_context:
+    author_name: "Blair Lyons"
+    author_email: "blair208@gmail.com"
+    hosting_github_username_or_org: "simularium"
+    project_name: "Simularium Metrics Calculator"
+    project_slug: "simularium_metrics_calculator"
+    python_slug: "simularium_metrics_calculator"
+    project_short_description: "Calculate plot metrics from spatial agent data"
+    hosting_pypi_username: "aicspypi"
+    license: "Apache Software License 2.0"
