@@ -1,0 +1,21 @@
+simularium\_metrics\_calculator.bin package
+===========================================
+
+Submodules
+----------
+
+simularium\_metrics\_calculator.bin.str\_len module
+---------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.bin.str_len
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: simularium_metrics_calculator.bin
+   :members:
+   :undoc-members:
+   :show-inheritance:
