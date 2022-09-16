@@ -1,25 +1,6 @@
 simularium\_metrics\_calculator package
 =======================================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   simularium_metrics_calculator.bin
-
-Submodules
-----------
-
-simularium\_metrics\_calculator.example module
-----------------------------------------------
-
-.. automodule:: simularium_metrics_calculator.example
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
