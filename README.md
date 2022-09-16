@@ -9,7 +9,7 @@ Calculate plot metrics from spatial agent data
 
 ## Installation
 
-**Stable Release:** `pip install simularium_metrics_calculator`<br>
+[Coming soon!] **Stable Release:** `pip install simularium_metrics_calculator`<br>
 **Development Head:** `pip install git+https://github.com/simularium/metrics-calculator.git`
 
 ## Quickstart
