@@ -15,9 +15,19 @@ Calculate plot metrics from spatial agent data
 ## Quickstart
 
 ```python
-from simularium_metrics_calculator import example
+from simularium_metrics_calculator import NumberOfAgentsCalculator
+from simulariumio import InputFileData
 
-print(example.str_len("hello"))  # prints 5
+calculator = NumberOfAgentsCalculator(
+    InputFileData(
+        file_path=(
+            "simularium_metrics_calculator/tests/data/"
+            "aster_pull3D_couples_actin_solid_3_frames_small.json"
+        )
+    )
+)
+
+print(calculator.plot_data())
 ```
 
 ## Documentation
