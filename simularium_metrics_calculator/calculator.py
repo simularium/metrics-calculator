@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from abc import ABC, abstractmethod
-from typing import Tuple
+from abc import ABC
 import json
 
 from simulariumio import (
@@ -13,7 +12,8 @@ from simulariumio import (
     HistogramPlotData,
 )
 from simulariumio.constants import CURRENT_VERSION
-
+        
+    
 
 class Calculator(ABC):
 
@@ -32,11 +32,14 @@ class Calculator(ABC):
             in JSON or binary format.
         """
         self.converter = FileConverter(input_data)
-        plot_data, plot_type = self.calculate(self.converter._data)
+        plot_data = self._calculate(self.converter._data)
+        plot_type = "scatter"
+        if isinstance(plot_data, HistogramPlotData):
+            plot_type = "histogram"
         self.converter.add_plot(plot_data, plot_type)
     
-    @abstractmethod
-    def calculate(self, traj_data: TrajectoryData) -> Tuple[ScatterPlotData or HistogramPlotData, str]:
+    @staticmethod
+    def _calculate(traj_data: TrajectoryData) -> ScatterPlotData or HistogramPlotData:
         pass
     
     def plot_data(self) -> str:

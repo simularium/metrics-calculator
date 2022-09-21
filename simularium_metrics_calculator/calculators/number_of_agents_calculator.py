@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing import Tuple
+import numpy as np
 
 from simulariumio import TrajectoryData, ScatterPlotData
 
@@ -9,8 +9,8 @@ from ..calculator import Calculator
 
 
 class NumberOfAgentsCalculator(Calculator):
-
-    def calculate(traj_data: TrajectoryData) -> Tuple[ScatterPlotData, str]:
+    @staticmethod
+    def _calculate(traj_data: TrajectoryData) -> ScatterPlotData:
         """
         Return a ScatterPlotData with the number of agents 
         of each type over time.
@@ -23,6 +23,19 @@ class NumberOfAgentsCalculator(Calculator):
         Returns
         -------
         ScatterPlotData
-            A scatter plot of number of each agent type vs time.
+            Scatter plot data with number of each agent type vs time
         """
-        # TODO
+        type_names_array = np.array(traj_data.agent_data.types)
+        time_units = str(traj_data.time_units)
+        unique_types = np.unique(type_names_array)
+        ytraces = {}
+        for type_name in unique_types:
+            ytraces[type_name] = np.count_nonzero(type_names_array == type_name, axis=1)
+        return ScatterPlotData(
+            title="Number of Agents over Time",
+            xaxis_title=f"Time ({time_units})",
+            yaxis_title="Agent count",
+            xtrace=traj_data.agent_data.times,
+            ytraces=ytraces,
+            render_mode="lines",
+        )
