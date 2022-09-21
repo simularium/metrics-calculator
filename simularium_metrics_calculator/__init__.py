@@ -13,4 +13,4 @@ __author__ = "Blair Lyons"
 __email__ = "blair208@gmail.com"
 
 
-from .calculators import *
+from .calculators import NumberOfAgentsCalculator  # noqa: F401

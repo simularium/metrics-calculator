@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-
-from simulariumio import TrajectoryData, ScatterPlotData
+from simulariumio import ScatterPlotData, TrajectoryData
 
 from ..calculator import Calculator
 
@@ -12,7 +11,7 @@ class NumberOfAgentsCalculator(Calculator):
     @staticmethod
     def _calculate(traj_data: TrajectoryData) -> ScatterPlotData:
         """
-        Return a ScatterPlotData with the number of agents 
+        Return a ScatterPlotData with the number of agents
         of each type over time.
 
         Parameters

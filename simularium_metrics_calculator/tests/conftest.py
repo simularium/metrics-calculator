@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from typing import Dict
-import numpy as np
 
-from simulariumio import TrajectoryData, MetaData, AgentData, UnitData, ScatterPlotData
+import numpy as np
+from simulariumio import ScatterPlotData
 
 
 def assert_scatter_plot_data_equal(
-    plot_data: ScatterPlotData, 
+    plot_data: ScatterPlotData,
     title: str,
-    xaxis_title: str, 
+    xaxis_title: str,
     yaxis_title: str,
-    xtrace: np.ndarray, 
-    ytraces: Dict[str, np.ndarray]
-):
+    xtrace: np.ndarray,
+    ytraces: Dict[str, np.ndarray],
+) -> None:
     assert plot_data.title == title
     assert plot_data.xaxis_title == xaxis_title
     assert plot_data.yaxis_title == yaxis_title
