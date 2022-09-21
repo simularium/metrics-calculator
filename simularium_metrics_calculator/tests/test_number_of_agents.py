@@ -3,31 +3,20 @@
 
 import numpy as np
 import pytest
-from simulariumio import AgentData, MetaData, TrajectoryData, UnitData
+from simulariumio import TrajectoryData
 
 from simularium_metrics_calculator.calculators import NumberOfAgentsCalculator
-from simularium_metrics_calculator.tests import assert_scatter_plot_data_equal
+from simularium_metrics_calculator.tests import (
+    assert_scatter_plot_data_equal,
+    simple_test_traj_data,
+)
 
 
 @pytest.mark.parametrize(
     "traj_data, expected_xaxis_title, expected_ytraces",
     [
         (
-            TrajectoryData(
-                meta_data=MetaData(),
-                agent_data=AgentData(
-                    times=0.5 * np.array(list(range(3))),
-                    n_agents=np.array(3 * [3]),
-                    viz_types=np.array(3 * [3 * [1000.0]]),
-                    unique_ids=np.array(
-                        [[0.0, 1.0, 2.0], [0.0, 1.0, 2.0], [0.0, 1.0, 2.0]]
-                    ),
-                    types=[["C", "U", "C"], ["U", "L", "S"], ["O", "Y", "W"]],
-                    positions=np.zeros((3, 3, 3)),
-                    radii=np.ones((3, 3)),
-                ),
-                time_units=UnitData("ns"),
-            ),
+            simple_test_traj_data,
             "Time (ns)",
             {
                 "C": np.array([2.0, 0.0, 0.0]),
