@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from simularium_metrics_calculator import NumberOfAgentsCalculator
 from simulariumio import InputFileData
+
+from simularium_metrics_calculator import NumberOfAgentsCalculator
 
 calculator = NumberOfAgentsCalculator(
     InputFileData(
