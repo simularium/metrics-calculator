@@ -17,7 +17,7 @@ from simulariumio.constants import CURRENT_VERSION
 
 class Calculator(ABC):
 
-    def __init__(self, metric_name: str, input_data: InputFileData):
+    def __init__(self, input_data: InputFileData):
         """
         This object takes simulation trajectory data
         and calculates metrics that can be plotted 
@@ -28,7 +28,8 @@ class Calculator(ABC):
         input_data : InputFileData
             An object containing simularium data, 
             either a file path where the data can be loaded, 
-            or the data already in memory.
+            or the data already in memory. Data can be 
+            in JSON or binary format.
         """
         self.converter = FileConverter(input_data)
         plot_data, plot_type = self.calculate(self.converter._data)
