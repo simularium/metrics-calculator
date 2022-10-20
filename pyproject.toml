@@ -27,7 +27,8 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "simulariumio"
+    "simulariumio",
+    "scipy",
 ]
 
 [project.urls]

@@ -9,25 +9,32 @@ Calculate plot metrics from spatial agent data
 
 ## Installation
 
-[Coming soon!] **Stable Release:** `pip install simularium_metrics_calculator`<br>
+**Stable Release:** [Coming soon!] `pip install simularium_metrics_calculator`<br>
 **Development Head:** `pip install git+https://github.com/simularium/metrics-calculator.git`
+
+To install in editable mode with all dev dependencies: `just install`
 
 ## Quickstart
 
 ```python
-from simularium_metrics_calculator import NumberOfAgentsCalculator
+from simularium_metrics_calculator import MetricsManager, NumberOfAgentsCalculator, NearestNeighborCalculator
 from simulariumio import InputFileData
 
-calculator = NumberOfAgentsCalculator(
-    InputFileData(
-        file_path=(
-            "simularium_metrics_calculator/tests/data/"
-            "aster_pull3D_couples_actin_solid_3_frames_small.json"
-        )
-    )
+metrics = MetricsManager(
+    input_data=InputFileData(
+        file_path="[path to .simularium file]",
+    ),
+    calculators=[
+        NumberOfAgentsCalculator(
+            exclude_types=["A"],
+        ),
+        NearestNeighborCalculator(
+            time_indices=[0, 99],
+        ),
+    ],
 )
 
-print(calculator.plot_data())
+result = metrics.plot_data()
 ```
 
 ## Documentation

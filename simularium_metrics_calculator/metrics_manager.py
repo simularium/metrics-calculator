@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import json
-from abc import ABC
-from typing import Union
+from typing import Union, List
 
 from simulariumio import (
+    InputFileData,
     FileConverter,
     HistogramPlotData,
-    InputFileData,
     ScatterPlotData,
-    TrajectoryData,
 )
 from simulariumio.constants import CURRENT_VERSION
 
+from .calculators.calculator import Calculator
 
-class Calculator(ABC):
-    def __init__(self, input_data: InputFileData):
+
+class MetricsManager:
+    def __init__(self, input_data: InputFileData, calculators: List[Calculator]):
         """
         This object takes simulation trajectory data
         and calculates metrics that can be plotted
@@ -31,17 +31,15 @@ class Calculator(ABC):
             in JSON or binary format.
         """
         self.converter = FileConverter(input_data)
-        plot_data = self._calculate(self.converter._data)
-        plot_type = "scatter"
-        if isinstance(plot_data, HistogramPlotData):
-            plot_type = "histogram"
-        self.converter.add_plot(plot_data, plot_type)
+        for calculator in calculators:
+            plot_data = calculator.calculate(self.converter._data)
+            self.converter.add_plot(plot_data, self._plot_type(plot_data))
 
     @staticmethod
-    def _calculate(
-        traj_data: TrajectoryData,
-    ) -> Union[ScatterPlotData, HistogramPlotData]:
-        pass
+    def _plot_type(plot_data: Union[ScatterPlotData, HistogramPlotData]) -> str:
+        """
+        """
+        return "scatter" if isinstance(plot_data, ScatterPlotData) else "histogram"
 
     def plot_data(self) -> str:
         """
