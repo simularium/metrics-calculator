@@ -1,38 +1,36 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing import List, Dict
+from os import stat
+from typing import List, Optional, Dict
 
 import numpy as np
-from simulariumio import ScatterPlotData, TrajectoryData
+from simulariumio import HistogramPlotData, TrajectoryData
+import scipy
 
 from .calculator import Calculator
 from ..constants import METRIC_TYPE
 
 
-class NumberOfAgentsCalculator(Calculator):
-    AXIS_TITLE: str = "Number of agents"
+class TimesCalculator(Calculator):
+    AXIS_TITLE: str = "Time"
     METRIC_TYPE: METRIC_TYPE = METRIC_TYPE.PER_TIME
     
-    def __init__(self, exclude_types: List[str] = None, stride: int = 1):
+    def __init__(self, stride: int = 1):
         """
-        Calculates the number of agents of each type over time.
+        Calculates the times over the course of the trajectory.
 
         Parameters
         ----------
-        exclude_types : List[str] (optional)
-            Type names for agents to ignore.
-            Default: include all type names found in the trajectory
         stride: int (optional)
-            Include every nth timestep.
+            use every nth time step.
             Default: 1
         """
-        self.exclude_types = exclude_types if exclude_types is not None else []
         self.stride = stride
         
     def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         """
-        Return the number of agents of each type over time.
+        Return the time at each time step.
 
         Parameters
         ----------
@@ -45,14 +43,9 @@ class NumberOfAgentsCalculator(Calculator):
             The name of each trace mapped 
             to an array of the data for that trace.
         """
-        type_names_array = np.array(traj_data.agent_data.types)
-        unique_types = np.unique(type_names_array)
-        ytraces = {}
-        for type_name in unique_types:
-            if type_name in self.exclude_types:
-                continue
-            ytraces[type_name] = np.count_nonzero(type_names_array == type_name, axis=1)[::self.stride]
-        return ytraces
+        return {
+            self.AXIS_TITLE : traj_data.agent_data.times[::self.stride]
+        }
         
     def units(self, traj_data: TrajectoryData) -> str:
         """
@@ -68,4 +61,4 @@ class NumberOfAgentsCalculator(Calculator):
         str
             A label for the units.
         """
-        return ""
+        return str(traj_data.time_units)

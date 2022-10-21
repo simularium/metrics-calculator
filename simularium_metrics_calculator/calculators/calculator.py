@@ -2,12 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from abc import ABC, abstractmethod
-from typing import Union
+from typing import Dict
 
-from simulariumio import TrajectoryData, ScatterPlotData, HistogramPlotData
+import numpy as np
+from simulariumio import TrajectoryData
+
+from..constants import METRIC_TYPE
 
 
 class Calculator(ABC):
     @abstractmethod
-    def calculate(self, traj_data: TrajectoryData) -> Union[ScatterPlotData, HistogramPlotData]:
+    def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
+        pass
+        
+    @abstractmethod
+    def units(self, traj_data: TrajectoryData) -> str:
         pass
