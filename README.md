@@ -25,8 +25,8 @@ time_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_TIME)
 agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
 
 # choose some example metrics
-plot1 = time_metrics[:2]  # Number of agents vs Time scatterplot
-plot2 = [agent_metrics[1]]  # Nearest neighbor distance histogram
+plot1 = list(time_metrics.keys())[:2]  # Number of agents vs time scatterplot
+plot2 = [list(agent_metrics.keys())[1]]  # Nearest neighbor distance histogram
 
 # calculate the plot data
 metrics = MetricsManager(

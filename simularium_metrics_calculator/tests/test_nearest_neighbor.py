@@ -7,10 +7,11 @@ import numpy as np
 import pytest
 from simulariumio import TrajectoryData
 
-from simularium_metrics_calculator.calculators import NumberOfAgentsCalculator
+from simularium_metrics_calculator.calculators import NearestNeighborCalculator
 from simularium_metrics_calculator.tests import (
     assert_traces_equal,
     simple_test_traj_data,
+    nearest_neighbor_positions,
 )
 
 
@@ -20,24 +21,18 @@ from simularium_metrics_calculator.tests import (
         (
             simple_test_traj_data,
             {
-                "C": np.array([2.0, 0.0, 0.0]),
-                "U": np.array([1.0, 1.0, 0.0]),
-                "L": np.array([0.0, 1.0, 0.0]),
-                "S": np.array([0.0, 1.0, 0.0]),
-                "O": np.array([0.0, 0.0, 1.0]),
-                "Y": np.array([0.0, 0.0, 1.0]),
-                "W": np.array([0.0, 0.0, 1.0]),
+                "t = 0.0 ns": np.array([0.0, 0.0, 0.0]),
+                "t = 1.0 ns": np.array([0.0, 0.0, 0.0]),
             },
-            "",
+            "nm",
         )
     ],
 )
-def test_num_agents(
-    traj_data: TrajectoryData,
-    expected_traces: Dict[str, np.ndarray],
-    expected_units: str,
+def test_nearest_neighbor(
+    traj_data: TrajectoryData, expected_traces: Dict[str, np.ndarray], expected_units: str
 ) -> None:
-    calculator = NumberOfAgentsCalculator()
+    calculator = NearestNeighborCalculator()
+    traj_data.agent_data.positions = nearest_neighbor_positions
     traces = calculator.calculate(traj_data)
     units = calculator.units(traj_data)
     assert_traces_equal(traces, expected_traces)

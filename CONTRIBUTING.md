@@ -82,6 +82,15 @@ Available recipes:
     update-from-cookiecutter # update this repo using latest cookiecutter-py-package
 ```
 
+## Adding a calculator
+
+To add a new metric calculator:
+1. In `simularium_metrics_calculator/calculators/`, create a `Calculator` for the metric 
+that implements `calculate()` and `units()`. See 
+[Number of Agents Calculator](simularium_metrics_calculator/calculators/number_of_agents_calculator.py) as an example.
+2. Add it to `simularium_metrics_calculator/calculators/__init__.py`.
+3. Add it to the [Metrics Registry](simularium_metrics_calculator/metrics_registry.py).
+
 ## Deploying
 
 A reminder for the maintainers on how to deploy.
