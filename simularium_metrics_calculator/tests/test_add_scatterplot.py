@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing import List
 import json
+from typing import List
 
-import numpy as np
 import pytest
 from simulariumio import InputFileData, ScatterPlotData
 
@@ -16,30 +15,33 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
     "spatial_data_path, plot_metrics, expected_plot_data",
     [
         (
-            "simularium_metrics_calculator/tests/data/aster_pull3D_couples_actin_solid_3_frames_small.json",
+            (
+                "simularium_metrics_calculator/tests/data/"
+                "aster_pull3D_couples_actin_solid_3_frames_small.json"
+            ),
             [
                 [0, 2],
             ],
             {
                 "layout": {
-                    "title": "Number of agents vs time", 
-                    "xaxis": {"title": "Time (s)"}, 
-                    "yaxis": {"title": "Number of agents"}
-                }, 
+                    "title": "Number of agents vs time",
+                    "xaxis": {"title": "Time (s)"},
+                    "yaxis": {"title": "Number of agents"},
+                },
                 "data": [
                     {
-                        "name": "microtubule", 
-                        "type": "scatter", 
-                        "x": [0.0, 0.05, 0.1], 
-                        "y": [1, 1, 1], 
-                        "mode": "lines"
-                    }, 
+                        "name": "microtubule",
+                        "type": "scatter",
+                        "x": [0.0, 0.05, 0.1],
+                        "y": [1, 1, 1],
+                        "mode": "lines",
+                    },
                     {
-                        "name": "motor complex", 
-                        "type": "scatter", 
-                        "x": [0.0, 0.05, 0.1], 
-                        "y": [1, 1, 1], 
-                        "mode": "lines"
+                        "name": "motor complex",
+                        "type": "scatter",
+                        "x": [0.0, 0.05, 0.1],
+                        "y": [1, 1, 1],
+                        "mode": "lines",
                     },
                 ],
             },
@@ -47,8 +49,8 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
     ],
 )
 def test_num_agents(
-    spatial_data_path: str, 
-    plot_metrics: List[List[int]], 
+    spatial_data_path: str,
+    plot_metrics: List[List[int]],
     expected_plot_data: ScatterPlotData,
 ) -> None:
     test_plot_data = json.loads(

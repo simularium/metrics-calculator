@@ -3,8 +3,7 @@
 
 from simulariumio import InputFileData
 
-from simularium_metrics_calculator import MetricsManager
-from simularium_metrics_calculator.constants import METRIC_TYPE
+from simularium_metrics_calculator import METRIC_TYPE, MetricsManager
 
 
 def main() -> None:

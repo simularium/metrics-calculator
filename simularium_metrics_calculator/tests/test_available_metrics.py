@@ -5,7 +5,7 @@ from typing import Dict
 
 import pytest
 
-from simularium_metrics_calculator import MetricsManager, METRIC_TYPE
+from simularium_metrics_calculator import METRIC_TYPE, MetricsManager
 
 
 @pytest.mark.parametrize(
@@ -14,21 +14,22 @@ from simularium_metrics_calculator import MetricsManager, METRIC_TYPE
         (
             METRIC_TYPE.PER_TIME,
             {
-                0 : "Time",
-                2 : "Number of agents",
+                0: "Time",
+                2: "Number of agents",
             },
         ),
         (
             METRIC_TYPE.PER_AGENT,
             {
-                1 : "Agent IDs",
-                3 : "Nearest neighbor distance",
+                1: "Agent IDs",
+                3: "Nearest neighbor distance",
             },
         ),
     ],
 )
 def test_available_metrics(
-    metric_type: METRIC_TYPE, expected_metrics: Dict[int, str],
+    metric_type: METRIC_TYPE,
+    expected_metrics: Dict[int, str],
 ) -> None:
     test_metrics = MetricsManager.available_metrics(metric_type)
     for metric_uid in expected_metrics:

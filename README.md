@@ -17,7 +17,7 @@ To install in editable mode with all dev dependencies: `just install`
 ## Quickstart
 
 ```python
-from simularium_metrics_calculator import MetricsManager
+from simularium_metrics_calculator import MetricsManager, METRIC_TYPE
 from simulariumio import InputFileData
 
 # check the metrics that are available to plot

@@ -14,7 +14,7 @@ from simulariumio.constants import CURRENT_VERSION
 
 from .constants import METRIC_TYPE
 from .exceptions import MetricNotFoundError
-from .metrics_registry import metric_registry
+from .metrics_registry import metrics_registry
 
 
 class MetricsManager:
@@ -50,7 +50,7 @@ class MetricsManager:
     def available_metrics(metric_type: METRIC_TYPE) -> Dict[int, str]:
         """ """
         result = {}
-        for metric in metric_registry.values():
+        for metric in metrics_registry.values():
             if metric.metric_type == metric_type:
                 result[metric.uid] = metric.display_name
         return result
@@ -64,9 +64,9 @@ class MetricsManager:
         metric_uid: int
             ID of the metric to plot in the histogram.
         """
-        if metric_uid not in metric_registry:
+        if metric_uid not in metrics_registry:
             raise MetricNotFoundError(metric_uid)
-        metric_info = metric_registry[metric_uid]
+        metric_info = metrics_registry[metric_uid]
         calculator = metric_info.calculator()
         traces = calculator.calculate(self.converter._data)
         units = calculator.units(self.converter._data)
@@ -91,12 +91,12 @@ class MetricsManager:
         y_metric_uid: int
             ID of the metric to plot on the y-axis.
         """
-        if x_metric_uid not in metric_registry:
+        if x_metric_uid not in metrics_registry:
             raise MetricNotFoundError(x_metric_uid)
-        if y_metric_uid not in metric_registry:
+        if y_metric_uid not in metrics_registry:
             raise MetricNotFoundError(y_metric_uid)
         # X axis metric
-        x_metric_info = metric_registry[x_metric_uid]
+        x_metric_info = metrics_registry[x_metric_uid]
         x_calculator = x_metric_info.calculator()
         x_traces = x_calculator.calculate(self.converter._data)
         # only use the first trace for X axis since there can only be one
@@ -106,7 +106,7 @@ class MetricsManager:
             x_units = f" ({x_units})"
         x_metric_title = x_metric_info.display_name
         # Y axis metric
-        y_metric_info = metric_registry[y_metric_uid]
+        y_metric_info = metrics_registry[y_metric_uid]
         y_calculator = y_metric_info.calculator()
         y_traces = y_calculator.calculate(self.converter._data)
         y_units = y_calculator.units(self.converter._data)

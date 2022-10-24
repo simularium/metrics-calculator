@@ -10,8 +10,8 @@ from simulariumio import TrajectoryData
 from simularium_metrics_calculator.calculators import NearestNeighborCalculator
 from simularium_metrics_calculator.tests import (
     assert_traces_equal,
-    simple_test_traj_data,
     nearest_neighbor_positions,
+    simple_test_traj_data,
 )
 
 
@@ -29,7 +29,9 @@ from simularium_metrics_calculator.tests import (
     ],
 )
 def test_nearest_neighbor(
-    traj_data: TrajectoryData, expected_traces: Dict[str, np.ndarray], expected_units: str
+    traj_data: TrajectoryData,
+    expected_traces: Dict[str, np.ndarray],
+    expected_units: str,
 ) -> None:
     calculator = NearestNeighborCalculator()
     traj_data.agent_data.positions = nearest_neighbor_positions
