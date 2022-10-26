@@ -13,8 +13,7 @@ from simulariumio import (
 from simulariumio.constants import CURRENT_VERSION
 
 from .constants import METRIC_TYPE
-from .exceptions import MetricNotFoundError
-from .metrics_registry import metrics_registry
+from .metrics_registry import metrics_registry, metric_info_for_id
 
 
 class MetricsManager:
@@ -64,14 +63,10 @@ class MetricsManager:
         metric_uid: int
             ID of the metric to plot in the histogram.
         """
-        if metric_uid not in metrics_registry:
-            raise MetricNotFoundError(metric_uid)
-        metric_info = metrics_registry[metric_uid]
+        metric_info = metric_info_for_id(metric_uid)
         calculator = metric_info.calculator()
         traces, units = calculator.calculate(self.converter._data)
         metric_title = metric_info.display_name
-        if units:
-            units = f" ({units})"
         plot_data = HistogramPlotData(
             title=metric_title,
             xaxis_title=f"{metric_title}{units}",
@@ -90,25 +85,17 @@ class MetricsManager:
         y_metric_uid: int
             ID of the metric to plot on the y-axis.
         """
-        if x_metric_uid not in metrics_registry:
-            raise MetricNotFoundError(x_metric_uid)
-        if y_metric_uid not in metrics_registry:
-            raise MetricNotFoundError(y_metric_uid)
         # X axis metric
-        x_metric_info = metrics_registry[x_metric_uid]
+        x_metric_info = metric_info_for_id(x_metric_uid)
         x_calculator = x_metric_info.calculator()
         x_traces, x_units = x_calculator.calculate(self.converter._data)
         # only use the first trace for X axis since there can only be one
         x_trace = x_traces[list(x_traces.keys())[0]]
-        if x_units:
-            x_units = f" ({x_units})"
         x_metric_title = x_metric_info.display_name
         # Y axis metric
-        y_metric_info = metrics_registry[y_metric_uid]
+        y_metric_info = metric_info_for_id(y_metric_uid)
         y_calculator = y_metric_info.calculator()
         y_traces, y_units = y_calculator.calculate(self.converter._data)
-        if y_units:
-            y_units = f" ({y_units})"
         y_metric_title = y_metric_info.display_name
         # create and add plot
         plot_data = ScatterPlotData(
