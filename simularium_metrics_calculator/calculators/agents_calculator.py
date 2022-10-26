@@ -22,7 +22,7 @@ class AgentsCalculator(Calculator):
         """
         self.time_index = time_index
 
-    def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
+    def traces(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         """
         Return the agent IDs at the given time step.
 

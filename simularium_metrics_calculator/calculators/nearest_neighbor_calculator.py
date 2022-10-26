@@ -42,7 +42,7 @@ class NearestNeighborCalculator(Calculator):
         else:
             return [0, len(times) - 1]
 
-    def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
+    def traces(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         """
         Return the distance to the nearest neighbor for each agent
         at the requested time indices (by default first and last).

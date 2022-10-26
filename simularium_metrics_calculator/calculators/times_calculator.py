@@ -22,7 +22,7 @@ class TimesCalculator(Calculator):
         """
         self.stride = stride
 
-    def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
+    def traces(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         """
         Return the time at each time step.
 

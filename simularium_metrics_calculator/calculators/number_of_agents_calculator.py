@@ -26,7 +26,7 @@ class NumberOfAgentsCalculator(Calculator):
         self.exclude_types = exclude_types if exclude_types is not None else []
         self.stride = stride
 
-    def calculate(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
+    def traces(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         """
         Return the number of agents of each type over time.
 
