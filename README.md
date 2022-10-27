@@ -25,8 +25,14 @@ time_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_TIME)
 agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
 
 # choose some example metrics
-plot1 = list(time_metrics.keys())[:2]  # Number of agents vs time scatterplot
-plot2 = [list(agent_metrics.keys())[1]]  # Nearest neighbor distance histogram
+plot1 = PlotInfo(  # Number of agents vs time scatterplot
+    metric_id_x=0,
+    metric_id_y=2,
+    scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
+)
+plot2 = PlotInfo(  # Nearest neighbor distance histogram
+    metric_id_x=3,
+)
 
 # calculate the plot data
 metrics = MetricsManager(
@@ -36,7 +42,7 @@ metrics = MetricsManager(
             "aster_pull3D_couples_actin_solid_3_frames_small.json"
         )
     ),
-    plot_metrics=[
+    plots=[
         plot1,
         plot2,
     ],
