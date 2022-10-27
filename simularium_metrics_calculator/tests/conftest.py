@@ -80,6 +80,7 @@ def assert_plot_data_equal(
                     assert False not in np.isclose(
                         np.array(test_trace["y"]), np.array(expected_trace["y"])
                     )
+                    assert test_trace["mode"] == expected_trace["mode"]
                 found = True
                 break
         if not found:

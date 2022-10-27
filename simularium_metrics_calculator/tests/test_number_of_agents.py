@@ -38,7 +38,6 @@ def test_num_agents(
     expected_units: str,
 ) -> None:
     calculator = NumberOfAgentsCalculator()
-    traces = calculator.calculate(traj_data)
-    units = calculator.units(traj_data)
+    traces, units = calculator.calculate(traj_data)
     assert_traces_equal(traces, expected_traces)
     assert units == expected_units

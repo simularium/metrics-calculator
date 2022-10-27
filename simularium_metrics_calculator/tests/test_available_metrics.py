@@ -32,6 +32,6 @@ def test_available_metrics(
     expected_metrics: Dict[int, str],
 ) -> None:
     test_metrics = MetricsManager.available_metrics(metric_type)
-    for metric_uid in expected_metrics:
-        assert metric_uid in test_metrics
-        assert test_metrics[metric_uid] == expected_metrics[metric_uid]
+    for metric_id in expected_metrics:
+        assert metric_id in test_metrics
+        assert test_metrics[metric_id] == expected_metrics[metric_id]

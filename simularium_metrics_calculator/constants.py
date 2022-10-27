@@ -20,5 +20,5 @@ class SCATTER_PLOT_MODE(Enum):
     Mode for how to draw points on a scatter plot.
     """
 
-    MARKERS = "MARKERS"
-    LINES = "LINES"
+    MARKERS = "markers"
+    LINES = "lines"

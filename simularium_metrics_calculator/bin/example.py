@@ -3,17 +3,30 @@
 
 from simulariumio import InputFileData
 
-from simularium_metrics_calculator import METRIC_TYPE, MetricsManager
+from simularium_metrics_calculator import (
+    METRIC_TYPE,
+    SCATTER_PLOT_MODE,
+    MetricsManager,
+    PlotInfo,
+)
 
 
 def main() -> None:
     # get the metrics that are available to plot
     time_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_TIME)
+    print(f"\nAvailable per time metrics:\n{time_metrics}")
     agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
-    # choose some example metrics
-    plot1 = list(time_metrics.keys())[:2]  # Number of agents vs time scatterplot
-    plot2 = [list(agent_metrics.keys())[1]]  # Nearest neighbor distance histogram
-    print(f"\nPlotting metric IDs {plot1} and {plot2}\n")
+    print(f"\nAvailable per agent metrics:\n{agent_metrics}")
+    # configure some plots
+    plot1 = PlotInfo(  # Number of agents vs time scatterplot
+        metric_id_x=0,
+        metric_id_y=2,
+        scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
+    )
+    plot2 = PlotInfo(  # Nearest neighbor distance histogram
+        metric_id_x=3,
+    )
+    print(f"\nTo plot:\n- {plot1}\n- {plot2}\n")
     # calculate the plot data
     metrics = MetricsManager(
         input_data=InputFileData(
@@ -22,7 +35,7 @@ def main() -> None:
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             )
         ),
-        plot_metrics=[
+        plots=[
             plot1,
             plot2,
         ],

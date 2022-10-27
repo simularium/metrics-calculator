@@ -8,8 +8,8 @@ from .calculators import (
     TimesCalculator,
 )
 from .constants import METRIC_TYPE
-from .metric_info import MetricInfo
 from .exceptions import MetricNotFoundError
+from .metric_info import MetricInfo
 
 metrics_registry = {
     0: MetricInfo(
@@ -38,11 +38,12 @@ metrics_registry = {
     ),
 }
 
-def metric_info_for_id(metric_uid: int) -> MetricInfo:
+
+def metric_info_for_id(metric_id: int) -> MetricInfo:
     """
     Get a MetricInfo for a given metric's unique id.
-    Raise an error if the metric_uid is not found in the registry.
+    Raise an error if the metric_id is not found in the registry.
     """
-    if metric_uid not in metrics_registry:
-        raise MetricNotFoundError(metric_uid)
-    return metrics_registry[metric_uid]
+    if metric_id not in metrics_registry:
+        raise MetricNotFoundError(metric_id)
+    return metrics_registry[metric_id]

@@ -24,7 +24,7 @@ from simularium_metrics_calculator.tests import (
                 "t = 0.0 ns": np.array([0.0, 0.0, 0.0]),
                 "t = 1.0 ns": np.array([0.0, 0.0, 0.0]),
             },
-            "nm",
+            " (nm)",
         )
     ],
 )
@@ -35,7 +35,6 @@ def test_nearest_neighbor(
 ) -> None:
     calculator = NearestNeighborCalculator()
     traj_data.agent_data.positions = nearest_neighbor_positions
-    traces = calculator.calculate(traj_data)
-    units = calculator.units(traj_data)
+    traces, units = calculator.calculate(traj_data)
     assert_traces_equal(traces, expected_traces)
     assert units == expected_units

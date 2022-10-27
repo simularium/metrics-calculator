@@ -9,10 +9,7 @@ from simulariumio import TrajectoryData
 
 
 class Calculator(ABC):
-    def calculate(
-        self,
-        traj_data: TrajectoryData
-    ) -> Tuple[Dict[str, np.ndarray], str]:
+    def calculate(self, traj_data: TrajectoryData) -> Tuple[Dict[str, np.ndarray], str]:
         """
         Return the calculated traces and the units label to use.
 
@@ -24,13 +21,13 @@ class Calculator(ABC):
         Returns
         -------
         Dict[str, np.ndarray]
-            The name of each trace mapped to an array 
+            The name of each trace mapped to an array
             of the data for that trace.
         str
             A label for the units, formatted as " (units)".
         """
         return self.traces(traj_data), self.formatted_units(traj_data)
-    
+
     @abstractmethod
     def traces(self, traj_data: TrajectoryData) -> Dict[str, np.ndarray]:
         pass
