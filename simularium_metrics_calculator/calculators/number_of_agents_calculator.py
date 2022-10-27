@@ -10,18 +10,18 @@ from .calculator import Calculator
 
 
 class NumberOfAgentsCalculator(Calculator):
-    def __init__(self, exclude_types: List[str] = None, stride: int = 1):
+    def __init__(self, stride: int = 1, exclude_types: List[str] = None):
         """
         Calculates the number of agents of each type over time.
 
         Parameters
         ----------
-        exclude_types : List[str] (optional)
-            Type names for agents to ignore.
-            Default: include all type names found in the trajectory
         stride: int (optional)
             Include every nth timestep.
             Default: 1
+        exclude_types : List[str] (optional)
+            Type names for agents to ignore.
+            Default: include all type names found in the trajectory
         """
         self.exclude_types = exclude_types if exclude_types is not None else []
         self.stride = stride

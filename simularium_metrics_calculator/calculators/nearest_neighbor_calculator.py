@@ -18,8 +18,9 @@ class NearestNeighborCalculator(Calculator):
 
         Parameters
         ----------
-        time_index: int
-            Which time step to use.
+        time_indices: List[int]
+            Which time step(s) to use.
+            Default: first and last
         """
         self.time_indices = time_indices
 
