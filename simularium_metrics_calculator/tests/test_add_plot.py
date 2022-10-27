@@ -7,8 +7,11 @@ from typing import List
 import pytest
 from simulariumio import HistogramPlotData, InputFileData
 
-from simularium_metrics_calculator import MetricsManager, PlotInfo, SCATTER_PLOT_MODE
-from simularium_metrics_calculator.exceptions import MetricNotFoundError, IncompatibleMetricsError
+from simularium_metrics_calculator import SCATTER_PLOT_MODE, MetricsManager, PlotInfo
+from simularium_metrics_calculator.exceptions import (
+    IncompatibleMetricsError,
+    MetricNotFoundError,
+)
 from simularium_metrics_calculator.tests import assert_plot_data_equal
 
 
@@ -51,7 +54,11 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             ),
             [
-                PlotInfo(metric_id_x=0, metric_id_y=2, scatter_plot_mode=SCATTER_PLOT_MODE.LINES),
+                PlotInfo(
+                    metric_id_x=0,
+                    metric_id_y=2,
+                    scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
+                ),
             ],
             {
                 "layout": {
@@ -118,4 +125,6 @@ def test_add_plot(
     )["data"]
     assert len(test_plot_data) == 1
     is_histogram = plot_metrics[0].is_histogram()
-    assert_plot_data_equal(test_plot_data[0], expected_plot_data, is_histogram=is_histogram)
+    assert_plot_data_equal(
+        test_plot_data[0], expected_plot_data, is_histogram=is_histogram
+    )
