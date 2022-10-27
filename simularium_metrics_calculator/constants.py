@@ -13,3 +13,12 @@ class METRIC_TYPE(Enum):
     OTHER = "OTHER"
     PER_TIME = "PER_TIME"
     PER_AGENT = "PER_AGENT"
+
+
+class SCATTER_PLOT_MODE(Enum):
+    """
+    Mode for how to draw points on a scatter plot.
+    """
+
+    MARKERS = "MARKERS"
+    LINES = "LINES"
