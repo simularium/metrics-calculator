@@ -15,6 +15,15 @@ class METRIC_TYPE(Enum):
     PER_AGENT = "PER_AGENT"
 
 
+class PLOT_TYPE(Enum):
+    """
+    The type of a plot.
+    """
+
+    SCATTER = "scatter"
+    HISTOGRAM = "histogram"
+
+
 class SCATTER_PLOT_MODE(Enum):
     """
     Mode for how to draw points on a scatter plot.

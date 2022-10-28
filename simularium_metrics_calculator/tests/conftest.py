@@ -6,6 +6,8 @@ from typing import Any, Dict
 import numpy as np
 from simulariumio import AgentData, MetaData, TrajectoryData, UnitData
 
+from simularium_metrics_calculator import PLOT_TYPE
+
 simple_test_traj_data = TrajectoryData(
     meta_data=MetaData(),
     agent_data=AgentData(
@@ -55,14 +57,14 @@ def assert_traces_equal(
 def assert_plot_data_equal(
     test_plot_data: Dict[str, Any],
     expected_plot_data: Dict[str, Any],
-    is_histogram: bool = False,
+    plot_type: PLOT_TYPE,
 ) -> None:
     assert test_plot_data["layout"]["title"] == expected_plot_data["layout"]["title"]
     assert (
         test_plot_data["layout"]["xaxis"]["title"]
         == expected_plot_data["layout"]["xaxis"]["title"]
     )
-    if not is_histogram:
+    if plot_type != PLOT_TYPE.HISTOGRAM:
         assert (
             test_plot_data["layout"]["yaxis"]["title"]
             == expected_plot_data["layout"]["yaxis"]["title"]
@@ -76,7 +78,7 @@ def assert_plot_data_equal(
                 assert False not in np.isclose(
                     np.array(test_trace["x"]), np.array(expected_trace["x"])
                 )
-                if not is_histogram:
+                if plot_type != PLOT_TYPE.HISTOGRAM:
                     assert False not in np.isclose(
                         np.array(test_trace["y"]), np.array(expected_trace["y"])
                     )

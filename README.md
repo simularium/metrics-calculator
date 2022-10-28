@@ -17,7 +17,7 @@ To install in editable mode with all dev dependencies: `just install`
 ## Quickstart
 
 ```python
-from simularium_metrics_calculator import MetricsManager, METRIC_TYPE
+from simularium_metrics_calculator import MetricsManager, PLOT_TYPE, METRIC_TYPE
 from simulariumio import InputFileData
 
 # check the metrics that are available to plot
@@ -26,28 +26,31 @@ agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
 
 # choose some example metrics
 plot1 = PlotInfo(  # Number of agents vs time scatterplot
+    plot_type=PLOT_TYPE.SCATTER,
     metric_id_x=0,
     metric_id_y=2,
     scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
 )
 plot2 = PlotInfo(  # Nearest neighbor distance histogram
+    plot_type=PLOT_TYPE.HISTOGRAM,
     metric_id_x=3,
 )
 
 # calculate the plot data
-metrics = MetricsManager(
+manager = MetricsManager(
     input_data=InputFileData(
         file_path=(
             "simularium_metrics_calculator/tests/data/"
             "aster_pull3D_couples_actin_solid_3_frames_small.json"
         )
     ),
+)
+result = manager.plot_data(
     plots=[
         plot1,
         plot2,
     ],
 )
-result = metrics.plot_data()
 ```
 
 ## Documentation

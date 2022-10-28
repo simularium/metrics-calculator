@@ -1,15 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import json
 from typing import List
 
 import pytest
 from simulariumio import HistogramPlotData, InputFileData
 
-from simularium_metrics_calculator import SCATTER_PLOT_MODE, MetricsManager, PlotInfo
+from simularium_metrics_calculator import (
+    PLOT_TYPE,
+    SCATTER_PLOT_MODE,
+    MetricsManager,
+    PlotInfo,
+)
 from simularium_metrics_calculator.exceptions import (
     IncompatibleMetricsError,
+    InconsistentPlotTypeError,
     MetricNotFoundError,
 )
 from simularium_metrics_calculator.tests import assert_plot_data_equal
@@ -25,7 +30,10 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             ),
             [
-                PlotInfo(metric_id_x=3),
+                PlotInfo(
+                    plot_type=PLOT_TYPE.HISTOGRAM,
+                    metric_id_x=3,
+                ),
             ],
             {
                 "layout": {
@@ -55,6 +63,7 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
             ),
             [
                 PlotInfo(
+                    plot_type=PLOT_TYPE.SCATTER,
                     metric_id_x=0,
                     metric_id_y=2,
                     scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
@@ -91,10 +100,28 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             ),
             [
-                PlotInfo(metric_id_x=-1),
+                PlotInfo(
+                    plot_type=PLOT_TYPE.HISTOGRAM,
+                    metric_id_x=-1,
+                ),
             ],
             {},
             marks=pytest.mark.raises(exception=MetricNotFoundError),
+        ),
+        # plot type and metrics are inconsistent
+        pytest.param(
+            (
+                "simularium_metrics_calculator/tests/data/"
+                "aster_pull3D_couples_actin_solid_3_frames_small.json"
+            ),
+            [
+                PlotInfo(
+                    plot_type=PLOT_TYPE.SCATTER,
+                    metric_id_x=0,
+                ),
+            ],
+            {},
+            marks=pytest.mark.raises(exception=InconsistentPlotTypeError),
         ),
         # metrics have incompatible type
         pytest.param(
@@ -103,7 +130,11 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             ),
             [
-                PlotInfo(metric_id_x=0, metric_id_y=1),
+                PlotInfo(
+                    plot_type=PLOT_TYPE.SCATTER,
+                    metric_id_x=0,
+                    metric_id_y=1,
+                ),
             ],
             {},
             marks=pytest.mark.raises(exception=IncompatibleMetricsError),
@@ -115,16 +146,13 @@ def test_add_plot(
     plot_metrics: List[PlotInfo],
     expected_plot_data: HistogramPlotData,
 ) -> None:
-    test_plot_data = json.loads(
-        MetricsManager(
-            input_data=InputFileData(
-                file_path=spatial_data_path,
-            ),
-            plots=plot_metrics,
-        ).plot_data()
-    )["data"]
+    metrics = MetricsManager(
+        input_data=InputFileData(
+            file_path=spatial_data_path,
+        )
+    )
+    test_plot_data = metrics._plot_dicts(plot_metrics)
     assert len(test_plot_data) == 1
-    is_histogram = plot_metrics[0].is_histogram()
     assert_plot_data_equal(
-        test_plot_data[0], expected_plot_data, is_histogram=is_histogram
+        test_plot_data[0], expected_plot_data, plot_type=plot_metrics[0].plot_type
     )
