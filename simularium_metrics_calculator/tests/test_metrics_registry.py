@@ -9,4 +9,6 @@ def test_metrics_registry() -> None:
     for metric in metrics_list:
         uids.add(metric.uid)
     unique_ids = list(uids)
-    assert len(unique_ids) == len(metrics_list), "Multiple metrics have the same ID, make sure new metrics have a unique ID."
+    assert len(unique_ids) == len(
+        metrics_list
+    ), "Multiple metrics have the same ID, make sure new metrics have a unique ID."
