@@ -96,7 +96,7 @@ class MetricsManager:
         # create and add plots
         if plot_info.plot_type == PLOT_TYPE.HISTOGRAM:
             plot_data = HistogramPlotData(
-                title=x_metric_title,
+                title=plot_info._display_title(),
                 xaxis_title=f"{x_metric_title}{x_units}",
                 traces=x_traces,
             )
@@ -111,7 +111,7 @@ class MetricsManager:
             y_metric_title = y_metric_info.display_name
             # create and add scatter plot
             plot_data = ScatterPlotData(
-                title=f"{y_metric_title} vs {x_metric_title.lower()}",
+                title=plot_info._display_title(),
                 xaxis_title=f"{x_metric_title}{x_units}",
                 yaxis_title=f"{y_metric_title}{y_units}",
                 xtrace=x_trace,

@@ -11,6 +11,7 @@ class PlotInfo:
     metric_id_x: int
     metric_id_y: int
     scatter_plot_mode: SCATTER_PLOT_MODE
+    title: str
 
     def __init__(
         self,
@@ -18,6 +19,7 @@ class PlotInfo:
         metric_id_x: int,
         metric_id_y: int = -1,
         scatter_plot_mode: SCATTER_PLOT_MODE = SCATTER_PLOT_MODE.MARKERS,
+        title: str = "",
     ):
         """
         This object takes Simularium trajectory data
@@ -36,11 +38,14 @@ class PlotInfo:
         scatter_plot_mode : SCATTER_PLOT_MODE (Optional)
             If the plot is a scatterplot, how to draw the points.
             Default: SCATTER_PLOT_MODE.MARKERS (draw as dots)
+        title: str
+            Title to display above plot.
         """
         self.plot_type = plot_type
         self.metric_id_x = metric_id_x
         self.metric_id_y = metric_id_y
         self.scatter_plot_mode = scatter_plot_mode
+        self.title = title
 
     def validate_plot_configuration(self) -> None:
         """
@@ -73,17 +78,29 @@ class PlotInfo:
             y_metric_name = metric_info_for_id(self.metric_id_y).display_name
             raise IncompatibleMetricsError(x_metric_name, y_metric_name)
 
+    def _display_title(self) -> str:
+        """
+        Return the title to display above the plot.
+        If no title is provided, default to "Y metric name vs. X metric name".
+        """
+        if self.title:
+            return self.title
+        x_metric_name = metric_info_for_id(self.metric_id_x).display_name
+        if self.plot_type == PLOT_TYPE.HISTOGRAM:
+            return f"{x_metric_name}"
+        # scatter plot
+        y_metric_name = metric_info_for_id(self.metric_id_y).display_name
+        return f"{y_metric_name} vs. {x_metric_name.lower()}"
+
     def __str__(self) -> str:
         """
-        Get the name and type of this plot.
+        Get the title and type of this plot.
 
         Returns
         -------
         str
-            "[X metric] vs [Y metric] [type of plot]"
+            "[title] [type of plot]"
         """
-        x_metric_name = metric_info_for_id(self.metric_id_x).display_name
-        if self.plot_type == PLOT_TYPE.SCATTER:
-            y_metric_name = metric_info_for_id(self.metric_id_y).display_name
-            return f"{y_metric_name} vs {x_metric_name.lower()} scatter plot"
-        return f"{x_metric_name} histogram"
+        title = self._display_title()
+        pt = "histogram" if self.plot_type == PLOT_TYPE.HISTOGRAM else "scatter plot"
+        return f"{title} {pt}"

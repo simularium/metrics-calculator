@@ -31,13 +31,14 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
             ),
             [
                 PlotInfo(
+                    title="NN Distance",
                     plot_type=PLOT_TYPE.HISTOGRAM,
                     metric_id_x=3,
                 ),
             ],
             {
                 "layout": {
-                    "title": "Nearest neighbor distance",
+                    "title": "NN Distance",
                     "xaxis": {"title": "Nearest neighbor distance (\u00b5m)"},
                     "yaxis": {"title": "frequency"},
                 },
@@ -71,7 +72,7 @@ from simularium_metrics_calculator.tests import assert_plot_data_equal
             ],
             {
                 "layout": {
-                    "title": "Number of agents vs time",
+                    "title": "Number of agents vs. time",
                     "xaxis": {"title": "Time (s)"},
                     "yaxis": {"title": "Number of agents"},
                 },

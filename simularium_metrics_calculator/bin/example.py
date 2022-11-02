@@ -29,6 +29,7 @@ def main() -> None:
     plot2 = PlotInfo(  # Nearest neighbor distance histogram
         plot_type=PLOT_TYPE.HISTOGRAM,
         metric_id_x=3,
+        title="Nearest Neighbor Distance",  # optional
     )
     print(f"\nTo plot:\n- {plot1}\n- {plot2}\n")
 
