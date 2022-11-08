@@ -22,13 +22,13 @@ def main() -> None:
     # configure some plots
     plot1 = PlotInfo(  # Number of agents vs time scatterplot
         plot_type=PLOT_TYPE.SCATTER,
-        metric_id_x=0,
-        metric_id_y=2,
+        metric_id_x=list(time_metrics.keys())[0],
+        metric_id_y=list(time_metrics.keys())[1],
         scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
     )
     plot2 = PlotInfo(  # Nearest neighbor distance histogram
         plot_type=PLOT_TYPE.HISTOGRAM,
-        metric_id_x=3,
+        metric_id_x=list(agent_metrics.keys())[1],
         title="Nearest Neighbor Distance",  # optional
     )
     print(f"\nTo plot:\n- {plot1}\n- {plot2}\n")
