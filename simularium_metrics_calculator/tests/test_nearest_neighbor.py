@@ -21,8 +21,8 @@ from simularium_metrics_calculator.tests import (
         (
             simple_test_traj_data,
             {
-                "t = 0.0 ns": np.array([0.0, 0.0, 0.0]),
-                "t = 1.0 ns": np.array([0.0, 0.0, 0.0]),
+                "t = 0.0 ns": np.array([1.0, 1.0, 1.73]),
+                "t = 1.0 ns": np.array([10.0, 17.3, 10.0]),
             },
             " (nm)",
         )
