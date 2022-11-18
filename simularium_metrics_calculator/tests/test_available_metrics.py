@@ -1,37 +1,69 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from typing import Dict
+from typing import Any, Dict, List
 
 import pytest
+from simulariumio import InputFileData
 
-from simularium_metrics_calculator import METRIC_TYPE, MetricsManager
+from simularium_metrics_calculator import MetricsManager
 
 
 @pytest.mark.parametrize(
-    "metric_type, expected_metrics",
+    "expected_metrics",
     [
         (
-            METRIC_TYPE.PER_TIME,
-            {
-                0: "Time",
-                2: "Number of agents",
-            },
-        ),
-        (
-            METRIC_TYPE.PER_AGENT,
-            {
-                1: "Agent IDs",
-                3: "Nearest neighbor distance",
-            },
+            [
+                {
+                    "display_name": "Time",
+                    "metric_type": "PER_TIME",
+                    "exclude_axes": ["y"],
+                },
+                {
+                    "display_name": "Agent IDs",
+                    "metric_type": "PER_AGENT",
+                    "exclude_axes": ["y"],
+                },
+                {
+                    "display_name": "Number of agents",
+                    "metric_type": "PER_TIME",
+                    "exclude_axes": [],
+                },
+                {
+                    "display_name": "Nearest neighbor distance",
+                    "metric_type": "PER_AGENT",
+                    "exclude_axes": [],
+                },
+            ]
         ),
     ],
 )
 def test_available_metrics(
-    metric_type: METRIC_TYPE,
-    expected_metrics: Dict[int, str],
+    expected_metrics: List[Dict[str, Any]],
 ) -> None:
-    test_metrics = MetricsManager.available_metrics(metric_type)
-    for metric_id in expected_metrics:
-        assert metric_id in test_metrics
-        assert test_metrics[metric_id] == expected_metrics[metric_id]
+    manager = MetricsManager(
+        input_data=InputFileData(
+            file_path=(
+                "simularium_metrics_calculator/tests/data/"
+                "aster_pull3D_couples_actin_solid_3_frames_small.json"
+            ),
+        )
+    )
+    test_metrics = manager.available_metrics()
+    assert len(test_metrics) >= len(expected_metrics)
+    for expected_metric_info in expected_metrics:
+        found = False
+        for test_metric_info in test_metrics:
+            if test_metric_info["display_name"] == expected_metric_info["display_name"]:
+                assert isinstance(test_metric_info["uid"], int)
+                assert (
+                    test_metric_info["metric_type"]
+                    == expected_metric_info["metric_type"]
+                )
+                assert (
+                    test_metric_info["exclude_axes"]
+                    == expected_metric_info["exclude_axes"]
+                )
+                found = True
+                break
+        assert found

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from typing import Any, Dict, List
+
 from simulariumio import InputFileData
 
 from simularium_metrics_calculator import (
-    METRIC_TYPE,
     PLOT_TYPE,
     SCATTER_PLOT_MODE,
     MetricsManager,
@@ -12,29 +13,19 @@ from simularium_metrics_calculator import (
 )
 
 
+def log_available_metrics(metrics: List[Dict[str, Any]]) -> None:
+    print("\nAvailable metrics:")
+    for index, metric in enumerate(metrics):
+        uid = metric["uid"]
+        display_name = metric["display_name"]
+        metric_type = metric["metric_type"]
+        print(f"  {index} : {display_name}, uid = {uid} ({metric_type})")
+    print("")
+
+
 def main() -> None:
-    # get the metrics that are available to plot
-    time_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_TIME)
-    print(f"\nAvailable per time metrics:\n{time_metrics}")
-    agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
-    print(f"\nAvailable per agent metrics:\n{agent_metrics}")
-
-    # configure some plots
-    plot1 = PlotInfo(  # Number of agents vs time scatterplot
-        plot_type=PLOT_TYPE.SCATTER,
-        metric_id_x=list(time_metrics.keys())[0],
-        metric_id_y=list(time_metrics.keys())[1],
-        scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
-    )
-    plot2 = PlotInfo(  # Nearest neighbor distance histogram
-        plot_type=PLOT_TYPE.HISTOGRAM,
-        metric_id_x=list(agent_metrics.keys())[1],
-        title="Nearest Neighbor Distance",  # optional
-    )
-    print(f"\nTo plot:\n- {plot1}\n- {plot2}\n")
-
-    # calculate plot data
-    metrics = MetricsManager(
+    # create main class (MetricsManager) with a simularium trajectory
+    manager = MetricsManager(
         input_data=InputFileData(
             file_path=(
                 "simularium_metrics_calculator/tests/data/"
@@ -42,12 +33,32 @@ def main() -> None:
             )
         ),
     )
-    result = metrics.plot_data(
+
+    # get the metrics that are available to plot
+    metrics = manager.available_metrics()
+    log_available_metrics(metrics)
+
+    # configure some plots
+    plot1 = PlotInfo(  # Number of agents vs time scatterplot
+        plot_type=PLOT_TYPE.SCATTER,
+        metric_id_x=metrics[0]["uid"],
+        metric_id_y=metrics[2]["uid"],
+        scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
+    )
+    plot2 = PlotInfo(  # Nearest neighbor distance histogram
+        plot_type=PLOT_TYPE.HISTOGRAM,
+        metric_id_x=metrics[3]["uid"],
+        title="Nearest Neighbor Distance",  # optional
+    )
+
+    # calculate plot data
+    result = manager.plot_data(
         plots=[
             plot1,
             plot2,
         ],
     )
+    print(f"\nTo plot:\n- {plot1}\n- {plot2}")
     print(f"\nRESULT = \n{result}\n")
 
 

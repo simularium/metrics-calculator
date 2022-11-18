@@ -31,3 +31,12 @@ class SCATTER_PLOT_MODE(Enum):
 
     MARKERS = "markers"
     LINES = "lines"
+
+
+class PLOT_AXIS(Enum):
+    """
+    Axes for a 2D plot.
+    """
+
+    X = "x"
+    Y = "y"

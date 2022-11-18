@@ -13,8 +13,9 @@ from simulariumio import (
 from simulariumio.constants import CURRENT_VERSION
 from simulariumio.plot_readers import HistogramPlotReader, ScatterPlotReader
 
-from .constants import METRIC_TYPE, PLOT_TYPE
-from .metrics_registry import metric_info_for_id, metrics_registry
+from .exceptions import MetricNotFoundError
+from .metric_info import MetricInfo
+from .metrics_registry import metrics_list
 from .plot_info import PlotInfo
 
 
@@ -34,22 +35,53 @@ class MetricsManager:
             in JSON or binary format.
         """
         self.traj_data = FileConverter(input_data)._data
+        self._create_metrics_registry()
 
-    @staticmethod
-    def available_metrics(metric_type: METRIC_TYPE) -> Dict[int, str]:
+    def _create_metrics_registry(self) -> None:
+        """
+        Get a dict mapping metric index (as per-session unique ID)
+        to info about each available metric.
+        """
+        self.metrics_registry = {}
+        for index, metric_info in enumerate(metrics_list):
+            self.metrics_registry[index] = metric_info
+
+    def metric_info_for_id(self, metric_id: int) -> MetricInfo:
+        """
+        Get a MetricInfo for a given metric's session id.
+        Raise an error if the metric_id is not found in the registry.
+
+        Parameters
+        ----------
+        metric_id: int
+            The session ID for the requested metric.
+
+        Returns
+        -------
+        MetricInfo
+            Info about the requested metric.
+        """
+        if metric_id not in self.metrics_registry:
+            raise MetricNotFoundError(metric_id)
+        return self.metrics_registry[metric_id]
+
+    def available_metrics(self) -> List[Dict[str, Any]]:
         """
         Get the IDs and display names for the metrics
         that are compatible with the given type of data.
 
         Returns
         -------
-        Dict[int, str]
-            A dict mapping metric unique ID to its display name.
+        List[Dict[str, Any]]
+            A list of info about each available metric,
+            including session ID, display name, metric type,
+            and excluded axes.
         """
-        result = {}
-        for metric in metrics_registry.values():
-            if metric.metric_type == metric_type:
-                result[metric.uid] = metric.display_name
+        result = []
+        for uid, metric_info in self.metrics_registry.items():
+            info = metric_info.to_dict()
+            info["uid"] = uid
+            result.append(info)
         return result
 
     def plot_data(self, plots: List[PlotInfo]) -> str:
@@ -87,16 +119,22 @@ class MetricsManager:
         """
         Calculate a plot with the given configuration.
         """
-        plot_info.validate_plot_configuration()
+        # get metric info
+        x_metric_info = self.metric_info_for_id(plot_info.metric_id_x)
+        y_metric_info = None
+        if plot_info.metric_id_y >= 0:
+            y_metric_info = self.metric_info_for_id(plot_info.metric_id_y)
+        # validate and setup title
+        plot_info.validate_plot_configuration(x_metric_info, y_metric_info)
+        plot_info.set_display_title(x_metric_info, y_metric_info)
         # X axis metric
-        x_metric_info = metric_info_for_id(plot_info.metric_id_x)
         x_calculator = x_metric_info.calculator()
         x_traces, x_units = x_calculator.calculate(self.traj_data)
         x_metric_title = x_metric_info.display_name
         # create and add plots
-        if plot_info.plot_type == PLOT_TYPE.HISTOGRAM:
+        if y_metric_info is None:  # HISTOGRAM
             plot_data = HistogramPlotData(
-                title=plot_info._display_title(),
+                title=plot_info.display_title,
                 xaxis_title=f"{x_metric_title}{x_units}",
                 traces=x_traces,
             )
@@ -105,13 +143,12 @@ class MetricsManager:
             # only use the first trace for X axis since there can only be one
             x_trace = x_traces[list(x_traces.keys())[0]]
             # Y axis metric
-            y_metric_info = metric_info_for_id(plot_info.metric_id_y)
             y_calculator = y_metric_info.calculator()
             y_traces, y_units = y_calculator.calculate(self.traj_data)
             y_metric_title = y_metric_info.display_name
             # create and add scatter plot
             plot_data = ScatterPlotData(
-                title=plot_info._display_title(),
+                title=plot_info.display_title,
                 xaxis_title=f"{x_metric_title}{x_units}",
                 yaxis_title=f"{y_metric_title}{y_units}",
                 xtrace=x_trace,

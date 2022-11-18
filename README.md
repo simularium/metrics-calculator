@@ -20,31 +20,31 @@ To install in editable mode with all dev dependencies: `just install`
 from simularium_metrics_calculator import MetricsManager, PLOT_TYPE, METRIC_TYPE
 from simulariumio import InputFileData
 
-# check the metrics that are available to plot
-time_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_TIME)
-agent_metrics = MetricsManager.available_metrics(METRIC_TYPE.PER_AGENT)
+# create MetricsManager with a simularium trajectory
+manager = MetricsManager(
+    input_data=InputFileData(
+        file_path=(
+            "path/to/trajectory.simularium"
+        )
+    ),
+)
 
-# choose some example metrics
+# check the metrics that are available to plot
+metrics = manager.available_metrics()
+
+# configure some plots
 plot1 = PlotInfo(  # Number of agents vs time scatterplot
     plot_type=PLOT_TYPE.SCATTER,
-    metric_id_x=0,
-    metric_id_y=2,
+    metric_info_x=metrics[0]["uid"],
+    metric_info_y=metrics[2]["uid"],
     scatter_plot_mode=SCATTER_PLOT_MODE.LINES,
 )
 plot2 = PlotInfo(  # Nearest neighbor distance histogram
     plot_type=PLOT_TYPE.HISTOGRAM,
-    metric_id_x=3,
+    metric_info_x=metrics[3]["uid"],
 )
 
 # calculate the plot data
-manager = MetricsManager(
-    input_data=InputFileData(
-        file_path=(
-            "simularium_metrics_calculator/tests/data/"
-            "aster_pull3D_couples_actin_solid_3_frames_small.json"
-        )
-    ),
-)
 result = manager.plot_data(
     plots=[
         plot1,

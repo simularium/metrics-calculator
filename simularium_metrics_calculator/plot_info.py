@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from typing import Optional
+
 from .constants import PLOT_TYPE, SCATTER_PLOT_MODE
 from .exceptions import IncompatibleMetricsError, InconsistentPlotTypeError
-from .metrics_registry import metric_info_for_id
+from .metric_info import MetricInfo
 
 
 class PlotInfo:
@@ -47,14 +49,24 @@ class PlotInfo:
         self.scatter_plot_mode = scatter_plot_mode
         self.title = title
 
-    def validate_plot_configuration(self) -> None:
+    def validate_plot_configuration(
+        self, metric_info_x: MetricInfo, metric_info_y: Optional[MetricInfo]
+    ) -> None:
         """
         Check that the plot type and number of metrics are consistent,
         and that the X and Y metrics are of the same type
         if this is not a histogram.
+
+        Parameters
+        ----------
+        metric_info_x: MetricInfo
+            Info about the metric to plot on the x-axis.
+        metric_info_y: MetricInfo (optional)
+            Info about the metric to plot on the y-axis.
+            Default: None (only for histograms)
         """
         self._check_plot_type_is_consistent()
-        self._check_metrics_are_compatible()
+        self._check_metrics_are_compatible(metric_info_x, metric_info_y)
 
     def _check_plot_type_is_consistent(self) -> None:
         """
@@ -64,33 +76,49 @@ class PlotInfo:
         if not (self.metric_id_y < 0) == (self.plot_type == PLOT_TYPE.HISTOGRAM):
             raise InconsistentPlotTypeError(self.plot_type)
 
-    def _check_metrics_are_compatible(self) -> None:
+    def _check_metrics_are_compatible(
+        self, metric_info_x: MetricInfo, metric_info_y: Optional[MetricInfo]
+    ) -> None:
         """
         Check that the X and Y metrics are of the same type,
         if this is not a histogram.
         """
-        if self.plot_type == PLOT_TYPE.HISTOGRAM:
+        if metric_info_y is None:
             return
-        x_metric_type = metric_info_for_id(self.metric_id_x).metric_type
-        y_metric_type = metric_info_for_id(self.metric_id_y).metric_type
+        x_metric_type = metric_info_x.metric_type
+        y_metric_type = metric_info_y.metric_type
         if x_metric_type != y_metric_type:
-            x_metric_name = metric_info_for_id(self.metric_id_x).display_name
-            y_metric_name = metric_info_for_id(self.metric_id_y).display_name
+            x_metric_name = metric_info_x.display_name
+            y_metric_name = metric_info_y.display_name
             raise IncompatibleMetricsError(x_metric_name, y_metric_name)
 
-    def _display_title(self) -> str:
+    def set_display_title(
+        self, metric_info_x: MetricInfo, metric_info_y: Optional[MetricInfo]
+    ) -> None:
         """
         Return the title to display above the plot.
         If no title is provided, default to "Y metric name vs. X metric name".
+
+        Parameters
+        ----------
+        metric_info_x: MetricInfo
+            Info about the metric to plot on the x-axis.
+        metric_info_y: MetricInfo (optional)
+            Info about the metric to plot on the y-axis.
+            Default: None (only for histograms)
         """
         if self.title:
-            return self.title
-        x_metric_name = metric_info_for_id(self.metric_id_x).display_name
-        if self.plot_type == PLOT_TYPE.HISTOGRAM:
-            return f"{x_metric_name}"
+            # use custom title
+            self.display_title = self.title
+            return
+        x_metric_name = metric_info_x.display_name
+        if metric_info_y is None:
+            # histogram
+            self.display_title = f"{x_metric_name}"
+            return
         # scatter plot
-        y_metric_name = metric_info_for_id(self.metric_id_y).display_name
-        return f"{y_metric_name} vs. {x_metric_name.lower()}"
+        y_metric_name = metric_info_y.display_name
+        self.display_title = f"{y_metric_name} vs. {x_metric_name.lower()}"
 
     def __str__(self) -> str:
         """
@@ -101,6 +129,5 @@ class PlotInfo:
         str
             "[title] [type of plot]"
         """
-        title = self._display_title()
         pt = "histogram" if self.plot_type == PLOT_TYPE.HISTOGRAM else "scatter plot"
-        return f"{title} {pt}"
+        return f"{self.display_title} {pt}"
