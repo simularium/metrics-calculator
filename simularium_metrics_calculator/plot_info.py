@@ -48,6 +48,7 @@ class PlotInfo:
         self.metric_id_y = metric_id_y
         self.scatter_plot_mode = scatter_plot_mode
         self.title = title
+        self.display_title = title
 
     def validate_plot_configuration(
         self, metric_info_x: MetricInfo, metric_info_y: Optional[MetricInfo]
@@ -129,5 +130,6 @@ class PlotInfo:
         str
             "[title] [type of plot]"
         """
+        title = f"{self.display_title} " if self.display_title else ""
         pt = "histogram" if self.plot_type == PLOT_TYPE.HISTOGRAM else "scatter plot"
-        return f"{self.display_title} {pt}"
+        return f"{title}{pt}"
