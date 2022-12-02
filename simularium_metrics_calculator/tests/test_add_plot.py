@@ -4,12 +4,12 @@
 from typing import List
 
 import pytest
-from simulariumio import HistogramPlotData, InputFileData
+from simulariumio import FileConverter, HistogramPlotData, InputFileData
 
 from simularium_metrics_calculator import (
     PLOT_TYPE,
     SCATTER_PLOT_MODE,
-    MetricsManager,
+    MetricsService,
     PlotInfo,
 )
 from simularium_metrics_calculator.exceptions import (
@@ -19,14 +19,15 @@ from simularium_metrics_calculator.exceptions import (
 )
 from simularium_metrics_calculator.tests import assert_plot_data_equal
 
-manager = MetricsManager(
-    input_data=InputFileData(
+metrics_service = MetricsService()
+traj_data = FileConverter(
+    input_file=InputFileData(
         file_path=(
             "simularium_metrics_calculator/tests/data/"
             "aster_pull3D_couples_actin_solid_3_frames_small.json"
-        ),
+        )
     )
-)
+)._data
 
 
 @pytest.mark.parametrize(
@@ -135,7 +136,7 @@ def test_add_plot(
     plot_metrics: List[PlotInfo],
     expected_plot_data: HistogramPlotData,
 ) -> None:
-    test_plot_data = manager._plot_dicts(plot_metrics)
+    test_plot_data = metrics_service._plot_dicts(traj_data, plot_metrics)
     assert len(test_plot_data) == 1
     assert_plot_data_equal(
         test_plot_data[0], expected_plot_data, plot_type=plot_metrics[0].plot_type

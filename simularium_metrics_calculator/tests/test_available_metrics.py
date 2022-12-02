@@ -4,9 +4,8 @@
 from typing import Any, Dict, List
 
 import pytest
-from simulariumio import InputFileData
 
-from simularium_metrics_calculator import MetricsManager
+from simularium_metrics_calculator import MetricsService
 
 
 @pytest.mark.parametrize(
@@ -41,15 +40,8 @@ from simularium_metrics_calculator import MetricsManager
 def test_available_metrics(
     expected_metrics: List[Dict[str, Any]],
 ) -> None:
-    manager = MetricsManager(
-        input_data=InputFileData(
-            file_path=(
-                "simularium_metrics_calculator/tests/data/"
-                "aster_pull3D_couples_actin_solid_3_frames_small.json"
-            ),
-        )
-    )
-    test_metrics = manager.available_metrics()
+    metrics_service = MetricsService()
+    test_metrics = metrics_service.available_metrics()
     assert len(test_metrics) >= len(expected_metrics)
     for expected_metric_info in expected_metrics:
         found = False

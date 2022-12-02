@@ -17,20 +17,29 @@ To install in editable mode with all dev dependencies: `just install`
 ## Quickstart
 
 ```python
-from simularium_metrics_calculator import MetricsManager, PLOT_TYPE, METRIC_TYPE
-from simulariumio import InputFileData
-
-# create MetricsManager with a simularium trajectory
-manager = MetricsManager(
-    input_data=InputFileData(
-        file_path=(
-            "path/to/trajectory.simularium"
-        )
-    ),
+from simulariumio import FileConverter, InputFileData
+from simularium_metrics_calculator import (
+    PLOT_TYPE,
+    SCATTER_PLOT_MODE,
+    MetricsService,
+    PlotInfo,
 )
 
+# create main class
+metrics_service = MetricsService()
+
 # check the metrics that are available to plot
-metrics = manager.available_metrics()
+metrics = metrics_service.available_metrics()
+
+# load simularium trajectory data using simulariumio
+traj_data = FileConverter(
+    input_file=InputFileData(
+        file_path=(
+            "simularium_metrics_calculator/tests/data/"
+            "aster_pull3D_couples_actin_solid_3_frames_small.json"
+        )
+    )
+)._data
 
 # configure some plots
 plot1 = PlotInfo(  # Number of agents vs time scatterplot
@@ -46,6 +55,7 @@ plot2 = PlotInfo(  # Nearest neighbor distance histogram
 
 # calculate the plot data
 result = manager.plot_data(
+    traj_data,
     plots=[
         plot1,
         plot2,

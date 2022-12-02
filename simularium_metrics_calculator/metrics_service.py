@@ -4,12 +4,7 @@
 import json
 from typing import Any, Dict, List
 
-from simulariumio import (
-    FileConverter,
-    HistogramPlotData,
-    InputFileData,
-    ScatterPlotData,
-)
+from simulariumio import HistogramPlotData, ScatterPlotData, TrajectoryData
 from simulariumio.constants import CURRENT_VERSION
 from simulariumio.plot_readers import HistogramPlotReader, ScatterPlotReader
 
@@ -19,22 +14,12 @@ from .metrics_registry import metrics_list
 from .plot_info import PlotInfo
 
 
-class MetricsManager:
-    def __init__(self, input_data: InputFileData):
+class MetricsService:
+    def __init__(self) -> None:
         """
-        This object takes Simularium trajectory data
-        and calculates metrics that can be plotted
-        in the Simularium Viewer.
-
-        Parameters
-        ----------
-        input_data : InputFileData
-            An object containing simularium data,
-            either a file path where the data can be loaded,
-            or the data already in memory. Data can be
-            in JSON or binary format.
+        This object lists and calculates metrics
+        that can be plotted in the Simularium Viewer.
         """
-        self.traj_data = FileConverter(input_data)._data
         self._create_metrics_registry()
 
     def _create_metrics_registry(self) -> None:
@@ -84,12 +69,14 @@ class MetricsManager:
             result.append(info)
         return result
 
-    def plot_data(self, plots: List[PlotInfo]) -> str:
+    def plot_data(self, traj_data: TrajectoryData, plots: List[PlotInfo]) -> str:
         """
         Add plots with the given configuration.
 
         Parameters
         ----------
+        traj_data : TrajectoryData,
+            A Simularium trajectory.
         plots: List[PlotInfo]
             A list of PlotInfo configuration for each plot.
 
@@ -98,7 +85,7 @@ class MetricsManager:
         str
             A JSON string of the plot(s) in simularium format.
         """
-        plot_dicts = self._plot_dicts(plots)
+        plot_dicts = self._plot_dicts(traj_data, plots)
         return json.dumps(
             {
                 "version": CURRENT_VERSION.PLOT_DATA,
@@ -106,16 +93,20 @@ class MetricsManager:
             }
         )
 
-    def _plot_dicts(self, plots: List[PlotInfo]) -> List[Dict[str, Any]]:
+    def _plot_dicts(
+        self, traj_data: TrajectoryData, plots: List[PlotInfo]
+    ) -> List[Dict[str, Any]]:
         """
         Calculate each plot and get a dict for each.
         """
         result = []
         for plot_info in plots:
-            result.append(self._calculate_plot(plot_info))
+            result.append(self._calculate_plot(traj_data, plot_info))
         return result
 
-    def _calculate_plot(self, plot_info: PlotInfo) -> Dict[str, Any]:
+    def _calculate_plot(
+        self, traj_data: TrajectoryData, plot_info: PlotInfo
+    ) -> Dict[str, Any]:
         """
         Calculate a plot with the given configuration.
         """
@@ -129,7 +120,7 @@ class MetricsManager:
         plot_info.set_display_title(x_metric_info, y_metric_info)
         # X axis metric
         x_calculator = x_metric_info.calculator()
-        x_traces, x_units = x_calculator.calculate(self.traj_data)
+        x_traces, x_units = x_calculator.calculate(traj_data)
         x_metric_title = x_metric_info.display_name
         # create and add plots
         if y_metric_info is None:  # HISTOGRAM
@@ -144,7 +135,7 @@ class MetricsManager:
             x_trace = x_traces[list(x_traces.keys())[0]]
             # Y axis metric
             y_calculator = y_metric_info.calculator()
-            y_traces, y_units = y_calculator.calculate(self.traj_data)
+            y_traces, y_units = y_calculator.calculate(traj_data)
             y_metric_title = y_metric_info.display_name
             # create and add scatter plot
             plot_data = ScatterPlotData(

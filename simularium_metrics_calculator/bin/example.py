@@ -3,12 +3,12 @@
 
 from typing import Any, Dict, List
 
-from simulariumio import InputFileData
+from simulariumio import FileConverter, InputFileData
 
 from simularium_metrics_calculator import (
     PLOT_TYPE,
     SCATTER_PLOT_MODE,
-    MetricsManager,
+    MetricsService,
     PlotInfo,
 )
 
@@ -24,19 +24,22 @@ def log_available_metrics(metrics: List[Dict[str, Any]]) -> None:
 
 
 def main() -> None:
-    # create main class (MetricsManager) with a simularium trajectory
-    manager = MetricsManager(
-        input_data=InputFileData(
+    # create main class
+    metrics_service = MetricsService()
+
+    # get the metrics that are available to plot
+    metrics = metrics_service.available_metrics()
+    log_available_metrics(metrics)
+
+    # load simularium trajectory data using simulariumio
+    traj_data = FileConverter(
+        input_file=InputFileData(
             file_path=(
                 "simularium_metrics_calculator/tests/data/"
                 "aster_pull3D_couples_actin_solid_3_frames_small.json"
             )
-        ),
-    )
-
-    # get the metrics that are available to plot
-    metrics = manager.available_metrics()
-    log_available_metrics(metrics)
+        )
+    )._data
 
     # configure some plots
     plot1 = PlotInfo(  # Number of agents vs time scatterplot
@@ -52,7 +55,8 @@ def main() -> None:
     )
 
     # calculate plot data
-    result = manager.plot_data(
+    result = metrics_service.plot_data(
+        traj_data,
         plots=[
             plot1,
             plot2,
