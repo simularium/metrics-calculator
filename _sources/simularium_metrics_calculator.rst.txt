@@ -1,6 +1,65 @@
 simularium\_metrics\_calculator package
 =======================================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   simularium_metrics_calculator.calculators
+
+Submodules
+----------
+
+simularium\_metrics\_calculator.constants module
+------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simularium\_metrics\_calculator.exceptions module
+-------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simularium\_metrics\_calculator.metric\_info module
+---------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.metric_info
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simularium\_metrics\_calculator.metrics\_registry module
+--------------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.metrics_registry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simularium\_metrics\_calculator.metrics\_service module
+-------------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.metrics_service
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+simularium\_metrics\_calculator.plot\_info module
+-------------------------------------------------
+
+.. automodule:: simularium_metrics_calculator.plot_info
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

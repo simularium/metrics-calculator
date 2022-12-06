@@ -3,12 +3,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="simularium_metrics_calculator package" href="simularium_metrics_calculator.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="simularium_metrics_calculator.calculators package" href="simularium_metrics_calculator.calculators.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
-        <title>Contributing - simularium_metrics_calculator 0.1.dev1+g3d043a6 documentation</title>
+    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
+        <title>Contributing - simularium_metrics_calculator 0.1.dev1+g3b2de02 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g3d043a6 documentation</div></a>
+      <a href="index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g3b2de02 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g3d043a6 documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g3b2de02 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -160,7 +160,10 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">Package modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="simularium_metrics_calculator.html">simularium_metrics_calculator package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="simularium_metrics_calculator.html">simularium_metrics_calculator package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="simularium_metrics_calculator.calculators.html">simularium_metrics_calculator.calculators package</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contributing</a></li>
@@ -183,7 +186,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -273,6 +277,17 @@ git push origin <span class="o">{</span>your_development_type<span class="o">}</
 </pre></div>
 </div>
 </section>
+<section id="adding-a-calculator">
+<h2>Adding a calculator<a class="headerlink" href="#adding-a-calculator" title="Permalink to this heading">#</a></h2>
+<p>To add a new metric calculator:</p>
+<ol class="arabic simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">simularium_metrics_calculator/calculators/</span></code>, create a <code class="docutils literal notranslate"><span class="pre">Calculator</span></code> for the metric
+that implements <code class="docutils literal notranslate"><span class="pre">calculate()</span></code> and <code class="docutils literal notranslate"><span class="pre">units()</span></code>. See
+<a class="reference external" href="simularium_metrics_calculator/calculators/number_of_agents_calculator.py">Number of Agents Calculator</a> as an example.</p></li>
+<li><p>Add it to <code class="docutils literal notranslate"><span class="pre">simularium_metrics_calculator/calculators/__init__.py</span></code>.</p></li>
+<li><p>Add it to the <a class="reference external" href="simularium_metrics_calculator/metrics_registry.py">metrics list</a>.</p></li>
+</ol>
+</section>
 <section id="deploying">
 <h2>Deploying<a class="headerlink" href="#deploying" title="Permalink to this heading">#</a></h2>
 <p>A reminder for the maintainers on how to deploy.
@@ -295,14 +310,14 @@ version will be injected into the package metadata by
         
         <div class="related-pages">
           
-          <a class="prev-page" href="simularium_metrics_calculator.html">
+          <a class="prev-page" href="simularium_metrics_calculator.calculators.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">simularium_metrics_calculator package</div>
+                <div class="title">simularium_metrics_calculator.calculators package</div>
                 
               </div>
             </a>
@@ -342,6 +357,7 @@ version will be injected into the package metadata by
 <li><a class="reference internal" href="#developer-installation">Developer Installation</a></li>
 <li><a class="reference internal" href="#get-started">Get Started!</a></li>
 <li><a class="reference internal" href="#just-commands">Just Commands</a></li>
+<li><a class="reference internal" href="#adding-a-calculator">Adding a calculator</a></li>
 <li><a class="reference internal" href="#deploying">Deploying</a></li>
 </ul>
 </li>
@@ -359,6 +375,7 @@ version will be injected into the package metadata by
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
