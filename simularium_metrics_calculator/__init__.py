@@ -11,3 +11,7 @@ except PackageNotFoundError:
 
 __author__ = "Blair Lyons"
 __email__ = "blair208@gmail.com"
+
+from .constants import METRIC_TYPE, PLOT_TYPE, SCATTER_PLOT_MODE  # noqa: F401
+from .metrics_service import MetricsService  # noqa: F401
+from .plot_info import PlotInfo  # noqa: F401
