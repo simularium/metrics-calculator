@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
 
-    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>simularium_metrics_calculator.metrics_service - simularium_metrics_calculator 0.1.dev1+g28da3a6 documentation</title>
+    <!-- Generated with Sphinx 6.0.0 and Furo 2022.12.07 -->
+        <title>simularium_metrics_calculator.metrics_service - simularium_metrics_calculator 0.1.dev1+gef9628d documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g28da3a6 documentation</div></a>
+      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+gef9628d documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,10 +146,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g28da3a6 documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+gef9628d documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -218,14 +218,14 @@
 
 <div class="viewcode-block" id="MetricsService"><a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService">[docs]</a><span class="k">class</span> <span class="nc">MetricsService</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This object lists and calculates metrics</span>
 <span class="sd">        that can be plotted in the Simularium Viewer.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_metrics_registry</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_create_metrics_registry</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a dict mapping metric index (as per-session unique ID)</span>
 <span class="sd">        to info about each available metric.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -234,7 +234,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric_info</span>
 
 <div class="viewcode-block" id="MetricsService.metric_info_for_id"><a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.metric_info_for_id">[docs]</a>    <span class="k">def</span> <span class="nf">metric_info_for_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetricInfo</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a MetricInfo for a given metric&#39;s session id.</span>
 <span class="sd">        Raise an error if the metric_id is not found in the registry.</span>
 
@@ -253,7 +253,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="p">[</span><span class="n">metric_id</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="MetricsService.available_metrics"><a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.available_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">available_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the IDs and display names for the metrics</span>
 <span class="sd">        that are compatible with the given type of data.</span>
 
@@ -272,7 +272,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="MetricsService.plot_data"><a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.plot_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlotInfo</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add plots with the given configuration.</span>
 
 <span class="sd">        Parameters</span>
@@ -298,7 +298,7 @@
     <span class="k">def</span> <span class="nf">_plot_dicts</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlotInfo</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate each plot and get a dict for each.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
@@ -309,7 +309,7 @@
     <span class="k">def</span> <span class="nf">_calculate_plot</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plot_info</span><span class="p">:</span> <span class="n">PlotInfo</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate a plot with the given configuration.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># get metric info</span>
@@ -369,9 +369,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -384,9 +382,6 @@
     </aside>
   </div>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
