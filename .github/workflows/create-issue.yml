@@ -8,7 +8,7 @@ jobs:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@aebf7de9ea000d9962337fbde49affac6a8c2a5c
+      - uses: actions/add-to-project@09abe09dcd45a4b9fc6bd1991fb30495b77bc33b
         with:
           project-url: https://github.com/orgs/simularium/projects/5
           github-token: ${{ secrets.SIMULARIUM }}
