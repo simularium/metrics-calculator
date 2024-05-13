@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="simularium_metrics_calculator.calculators package" href="simularium_metrics_calculator.calculators.html" /><link rel="prev" title="simularium_metrics_calculator" href="modules.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
-        <title>simularium_metrics_calculator package - simularium_metrics_calculator 0.1.dev1+geb4c602 documentation</title>
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>simularium_metrics_calculator package - simularium_metrics_calculator 0.1.dev1+g5b13ba6 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
@@ -69,7 +69,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -84,7 +84,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -92,7 +92,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -100,6 +100,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -113,6 +167,8 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
 
 
 <div class="page">
@@ -124,13 +180,14 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+geb4c602 documentation</div></a>
+      <a href="index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g5b13ba6 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -147,7 +204,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+geb4c602 documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g5b13ba6 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -186,11 +243,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/simularium_metrics_calculator.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -200,11 +263,11 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="simularium-metrics-calculator-package">
-<h1>simularium_metrics_calculator package<a class="headerlink" href="#simularium-metrics-calculator-package" title="Link to this heading">#</a></h1>
+<h1>simularium_metrics_calculator package<a class="headerlink" href="#simularium-metrics-calculator-package" title="Link to this heading">¶</a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="simularium_metrics_calculator.calculators.html">simularium_metrics_calculator.calculators package</a><ul>
@@ -258,90 +321,90 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
 <section id="module-simularium_metrics_calculator.constants">
-<span id="simularium-metrics-calculator-constants-module"></span><h2>simularium_metrics_calculator.constants module<a class="headerlink" href="#module-simularium_metrics_calculator.constants" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-constants-module"></span><h2>simularium_metrics_calculator.constants module<a class="headerlink" href="#module-simularium_metrics_calculator.constants" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.METRIC_TYPE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">METRIC_TYPE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#METRIC_TYPE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">METRIC_TYPE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#METRIC_TYPE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>The type of a metric, for determining
 which metrics can be plotted against one another.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.METRIC_TYPE.OTHER">
-<span class="sig-name descname"><span class="pre">OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OTHER'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.OTHER" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OTHER'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.OTHER" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.METRIC_TYPE.PER_AGENT">
-<span class="sig-name descname"><span class="pre">PER_AGENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PER_AGENT'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.PER_AGENT" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PER_AGENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PER_AGENT'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.PER_AGENT" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.METRIC_TYPE.PER_TIME">
-<span class="sig-name descname"><span class="pre">PER_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PER_TIME'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.PER_TIME" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">PER_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PER_TIME'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.METRIC_TYPE.PER_TIME" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_AXIS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">PLOT_AXIS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#PLOT_AXIS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">PLOT_AXIS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#PLOT_AXIS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Axes for a 2D plot.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_AXIS.X">
-<span class="sig-name descname"><span class="pre">X</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'x'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS.X" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">X</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'x'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS.X" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_AXIS.Y">
-<span class="sig-name descname"><span class="pre">Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'y'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS.Y" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">Y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'y'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_AXIS.Y" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_TYPE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">PLOT_TYPE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#PLOT_TYPE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">PLOT_TYPE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#PLOT_TYPE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>The type of a plot.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_TYPE.HISTOGRAM">
-<span class="sig-name descname"><span class="pre">HISTOGRAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'histogram'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE.HISTOGRAM" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">HISTOGRAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'histogram'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE.HISTOGRAM" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.PLOT_TYPE.SCATTER">
-<span class="sig-name descname"><span class="pre">SCATTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'scatter'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE.SCATTER" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">SCATTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'scatter'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.PLOT_TYPE.SCATTER" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">SCATTER_PLOT_MODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#SCATTER_PLOT_MODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.constants.</span></span><span class="sig-name descname"><span class="pre">SCATTER_PLOT_MODE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/constants.html#SCATTER_PLOT_MODE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Mode for how to draw points on a scatter plot.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.LINES">
-<span class="sig-name descname"><span class="pre">LINES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lines'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.LINES" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">LINES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lines'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.LINES" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.MARKERS">
-<span class="sig-name descname"><span class="pre">MARKERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'markers'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.MARKERS" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">MARKERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'markers'</span></em><a class="headerlink" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE.MARKERS" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-simularium_metrics_calculator.exceptions">
-<span id="simularium-metrics-calculator-exceptions-module"></span><h2>simularium_metrics_calculator.exceptions module<a class="headerlink" href="#module-simularium_metrics_calculator.exceptions" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-exceptions-module"></span><h2>simularium_metrics_calculator.exceptions module<a class="headerlink" href="#module-simularium_metrics_calculator.exceptions" title="Link to this heading">¶</a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.exceptions.IncompatibleMetricsError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">IncompatibleMetricsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#IncompatibleMetricsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.IncompatibleMetricsError" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">IncompatibleMetricsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#IncompatibleMetricsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.IncompatibleMetricsError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>This exception is intended to communicate that the requested metrics
 have incompatible metric types and can’t be plotted against each other.</p>
@@ -349,7 +412,7 @@ have incompatible metric types and can’t be plotted against each other.</p>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.exceptions.InconsistentPlotTypeError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">InconsistentPlotTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#InconsistentPlotTypeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.InconsistentPlotTypeError" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">InconsistentPlotTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#InconsistentPlotTypeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.InconsistentPlotTypeError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>This exception is intended to communicate that the type of a plot
 is not consistent with the number of metrics provided.</p>
@@ -357,7 +420,7 @@ is not consistent with the number of metrics provided.</p>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.exceptions.MetricNotFoundError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">MetricNotFoundError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#MetricNotFoundError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.MetricNotFoundError" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.exceptions.</span></span><span class="sig-name descname"><span class="pre">MetricNotFoundError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/exceptions.html#MetricNotFoundError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.exceptions.MetricNotFoundError" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>This exception is intended to communicate that the requested metric ID
 does not exist in the metrics registry.</p>
@@ -365,10 +428,10 @@ does not exist in the metrics registry.</p>
 
 </section>
 <section id="module-simularium_metrics_calculator.metric_info">
-<span id="simularium-metrics-calculator-metric-info-module"></span><h2>simularium_metrics_calculator.metric_info module<a class="headerlink" href="#module-simularium_metrics_calculator.metric_info" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-metric-info-module"></span><h2>simularium_metrics_calculator.metric_info module<a class="headerlink" href="#module-simularium_metrics_calculator.metric_info" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.metric_info.</span></span><span class="sig-name descname"><span class="pre">MetricInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="simularium_metrics_calculator.constants.METRIC_TYPE"><span class="pre">METRIC_TYPE</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.calculator.Calculator" title="simularium_metrics_calculator.calculators.calculator.Calculator"><span class="pre">Calculator</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_AXIS" title="simularium_metrics_calculator.constants.PLOT_AXIS"><span class="pre">PLOT_AXIS</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/metric_info.html#MetricInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.metric_info.</span></span><span class="sig-name descname"><span class="pre">MetricInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="simularium_metrics_calculator.constants.METRIC_TYPE"><span class="pre">METRIC_TYPE</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.calculator.Calculator" title="simularium_metrics_calculator.calculators.calculator.Calculator"><span class="pre">Calculator</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_axes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_AXIS" title="simularium_metrics_calculator.constants.PLOT_AXIS"><span class="pre">PLOT_AXIS</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/metric_info.html#MetricInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Data about a metric that can be calculated.</p>
 <dl class="field-list simple">
@@ -389,27 +452,27 @@ Default: [] (don’t exclude any axes)</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo.calculator">
-<span class="sig-name descname"><span class="pre">calculator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.calculator.Calculator" title="simularium_metrics_calculator.calculators.calculator.Calculator"><span class="pre">Calculator</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.calculator" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">calculator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.calculator.Calculator" title="simularium_metrics_calculator.calculators.calculator.Calculator"><span class="pre">Calculator</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.calculator" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo.display_name">
-<span class="sig-name descname"><span class="pre">display_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.display_name" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">display_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.display_name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo.exclude_axes">
-<span class="sig-name descname"><span class="pre">exclude_axes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.exclude_axes" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">exclude_axes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.exclude_axes" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo.metric_type">
-<span class="sig-name descname"><span class="pre">metric_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="simularium_metrics_calculator.constants.METRIC_TYPE"><span class="pre">METRIC_TYPE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.metric_type" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">metric_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.METRIC_TYPE" title="simularium_metrics_calculator.constants.METRIC_TYPE"><span class="pre">METRIC_TYPE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.metric_type" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metric_info.MetricInfo.to_dict">
-<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metric_info.html#MetricInfo.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.to_dict" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metric_info.html#MetricInfo.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metric_info.MetricInfo.to_dict" title="Link to this definition">¶</a></dt>
 <dd><p>Get a dict with info about the metric that a client needs to know.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -426,19 +489,19 @@ display name, metric type, and excluded axes.</p>
 
 </section>
 <section id="module-simularium_metrics_calculator.metrics_registry">
-<span id="simularium-metrics-calculator-metrics-registry-module"></span><h2>simularium_metrics_calculator.metrics_registry module<a class="headerlink" href="#module-simularium_metrics_calculator.metrics_registry" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-metrics-registry-module"></span><h2>simularium_metrics_calculator.metrics_registry module<a class="headerlink" href="#module-simularium_metrics_calculator.metrics_registry" title="Link to this heading">¶</a></h2>
 </section>
 <section id="module-simularium_metrics_calculator.metrics_service">
-<span id="simularium-metrics-calculator-metrics-service-module"></span><h2>simularium_metrics_calculator.metrics_service module<a class="headerlink" href="#module-simularium_metrics_calculator.metrics_service" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-metrics-service-module"></span><h2>simularium_metrics_calculator.metrics_service module<a class="headerlink" href="#module-simularium_metrics_calculator.metrics_service" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metrics_service.MetricsService">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.metrics_service.</span></span><span class="sig-name descname"><span class="pre">MetricsService</span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.metrics_service.</span></span><span class="sig-name descname"><span class="pre">MetricsService</span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This object lists and calculates metrics
 that can be plotted in the Simularium Viewer.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metrics_service.MetricsService.available_metrics">
-<span class="sig-name descname"><span class="pre">available_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.available_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.available_metrics" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">available_metrics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.available_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.available_metrics" title="Link to this definition">¶</a></dt>
 <dd><p>Get the IDs and display names for the metrics
 that are compatible with the given type of data.</p>
 <dl class="field-list simple">
@@ -455,7 +518,7 @@ and excluded axes.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metrics_service.MetricsService.metric_info_for_id">
-<span class="sig-name descname"><span class="pre">metric_info_for_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.metric_info_for_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.metric_info_for_id" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">metric_info_for_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.metric_info_for_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.metric_info_for_id" title="Link to this definition">¶</a></dt>
 <dd><p>Get a MetricInfo for a given metric’s session id.
 Raise an error if the metric_id is not found in the registry.</p>
 <dl class="field-list simple">
@@ -476,7 +539,7 @@ Raise an error if the metric_id is not found in the registry.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.metrics_service.MetricsService.plot_data">
-<span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TrajectoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#simularium_metrics_calculator.plot_info.PlotInfo" title="simularium_metrics_calculator.plot_info.PlotInfo"><span class="pre">PlotInfo</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.plot_data" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">TrajectoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#simularium_metrics_calculator.plot_info.PlotInfo" title="simularium_metrics_calculator.plot_info.PlotInfo"><span class="pre">PlotInfo</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/metrics_service.html#MetricsService.plot_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.metrics_service.MetricsService.plot_data" title="Link to this definition">¶</a></dt>
 <dd><p>Add plots with the given configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -500,10 +563,10 @@ Raise an error if the metric_id is not found in the registry.</p>
 
 </section>
 <section id="module-simularium_metrics_calculator.plot_info">
-<span id="simularium-metrics-calculator-plot-info-module"></span><h2>simularium_metrics_calculator.plot_info module<a class="headerlink" href="#module-simularium_metrics_calculator.plot_info" title="Link to this heading">#</a></h2>
+<span id="simularium-metrics-calculator-plot-info-module"></span><h2>simularium_metrics_calculator.plot_info module<a class="headerlink" href="#module-simularium_metrics_calculator.plot_info" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.plot_info.</span></span><span class="sig-name descname"><span class="pre">PlotInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_id_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_id_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_plot_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE"><span class="pre">SCATTER_PLOT_MODE</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SCATTER_PLOT_MODE.MARKERS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">simularium_metrics_calculator.plot_info.</span></span><span class="sig-name descname"><span class="pre">PlotInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_id_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_id_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_plot_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE"><span class="pre">SCATTER_PLOT_MODE</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">SCATTER_PLOT_MODE.MARKERS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This object takes Simularium trajectory data
 and calculates metrics that can be plotted
@@ -528,27 +591,27 @@ Default: SCATTER_PLOT_MODE.MARKERS (draw as dots)</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.metric_id_x">
-<span class="sig-name descname"><span class="pre">metric_id_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.metric_id_x" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">metric_id_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.metric_id_x" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.metric_id_y">
-<span class="sig-name descname"><span class="pre">metric_id_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.metric_id_y" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">metric_id_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.metric_id_y" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.plot_type">
-<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.plot_type" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.PLOT_TYPE" title="simularium_metrics_calculator.constants.PLOT_TYPE"><span class="pre">PLOT_TYPE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.plot_type" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.scatter_plot_mode">
-<span class="sig-name descname"><span class="pre">scatter_plot_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE"><span class="pre">SCATTER_PLOT_MODE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.scatter_plot_mode" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">scatter_plot_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#simularium_metrics_calculator.constants.SCATTER_PLOT_MODE" title="simularium_metrics_calculator.constants.SCATTER_PLOT_MODE"><span class="pre">SCATTER_PLOT_MODE</span></a></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.scatter_plot_mode" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.set_display_title">
-<span class="sig-name descname"><span class="pre">set_display_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_info_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_info_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo.set_display_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.set_display_title" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_display_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_info_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_info_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo.set_display_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.set_display_title" title="Link to this definition">¶</a></dt>
 <dd><p>Return the title to display above the plot.
 If no title is provided, default to “Y metric name vs. X metric name”.</p>
 <dl class="field-list simple">
@@ -566,12 +629,12 @@ Default: None (only for histograms)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.title">
-<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.title" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">title</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.title" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="simularium_metrics_calculator.plot_info.PlotInfo.validate_plot_configuration">
-<span class="sig-name descname"><span class="pre">validate_plot_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_info_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_info_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo.validate_plot_configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.validate_plot_configuration" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">validate_plot_configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric_info_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_info_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#simularium_metrics_calculator.metric_info.MetricInfo" title="simularium_metrics_calculator.metric_info.MetricInfo"><span class="pre">MetricInfo</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/simularium_metrics_calculator/plot_info.html#PlotInfo.validate_plot_configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#simularium_metrics_calculator.plot_info.PlotInfo.validate_plot_configuration" title="Link to this definition">¶</a></dt>
 <dd><p>Check that the plot type and number of metrics are consistent,
 and that the X and Y metrics are of the same type
 if this is not a histogram.</p>
@@ -592,7 +655,7 @@ Default: None (only for histograms)</p>
 
 </section>
 <section id="module-simularium_metrics_calculator">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-simularium_metrics_calculator" title="Link to this heading">#</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-simularium_metrics_calculator" title="Link to this heading">¶</a></h2>
 <p>Top-level package for simularium_metrics_calculator.</p>
 </section>
 </section>
@@ -731,10 +794,10 @@ Default: None (only for histograms)</p>
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=afceb142"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+</div><script src="_static/documentation_options.js?v=d1ded10e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=30646c52"></script>
     </body>
