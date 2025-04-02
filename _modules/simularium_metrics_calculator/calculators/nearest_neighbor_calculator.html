@@ -5,8 +5,8 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.08.06 -->
-        <title>simularium_metrics_calculator.calculators.nearest_neighbor_calculator - simularium_metrics_calculator 0.1.dev1+g985b67f documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+        <title>simularium_metrics_calculator.calculators.nearest_neighbor_calculator - simularium_metrics_calculator 0.1.dev1+g5e7f92b documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g985b67f documentation</div></a>
+      <a href="../../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+g5e7f92b documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,7 +190,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g985b67f documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+g5e7f92b documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -248,19 +248,19 @@
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">from</span> <span class="nn">simulariumio</span> <span class="kn">import</span> <span class="n">TrajectoryData</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">simulariumio</span><span class="w"> </span><span class="kn">import</span> <span class="n">TrajectoryData</span>
 
-<span class="kn">from</span> <span class="nn">.calculator</span> <span class="kn">import</span> <span class="n">Calculator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Calculator</span>
 
 
 <div class="viewcode-block" id="NearestNeighborCalculator">
 <a class="viewcode-back" href="../../../simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.nearest_neighbor_calculator.NearestNeighborCalculator">[docs]</a>
-<span class="k">class</span> <span class="nc">NearestNeighborCalculator</span><span class="p">(</span><span class="n">Calculator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_indices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NearestNeighborCalculator</span><span class="p">(</span><span class="n">Calculator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_indices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the distance to the nearest neighbor for each agent</span>
 <span class="sd">        at a given time index.</span>
@@ -274,7 +274,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">time_indices</span> <span class="o">=</span> <span class="n">time_indices</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_nearest_neighbor_distances</span><span class="p">(</span><span class="n">positions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_nearest_neighbor_distances</span><span class="p">(</span><span class="n">positions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Distance to nearest neighbor for each position.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -282,7 +282,7 @@
         <span class="n">masked_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dist_grid</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)))</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">masked_grid</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 
-    <span class="k">def</span> <span class="nf">_set_default_time_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_default_time_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of the first and last time indices.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -294,7 +294,7 @@
 
 <div class="viewcode-block" id="NearestNeighborCalculator.traces">
 <a class="viewcode-back" href="../../../simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.nearest_neighbor_calculator.NearestNeighborCalculator.traces">[docs]</a>
-    <span class="k">def</span> <span class="nf">traces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">traces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the distance to the nearest neighbor for each agent</span>
 <span class="sd">        at the requested time indices (by default first and last).</span>
@@ -327,7 +327,7 @@
 
 <div class="viewcode-block" id="NearestNeighborCalculator.units">
 <a class="viewcode-back" href="../../../simularium_metrics_calculator.calculators.html#simularium_metrics_calculator.calculators.nearest_neighbor_calculator.NearestNeighborCalculator.units">[docs]</a>
-    <span class="k">def</span> <span class="nf">units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a string label for the units to use on the axis title.</span>
 
@@ -376,7 +376,7 @@
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5be99e92"></script>
+</div><script src="../../../_static/documentation_options.js?v=aad68273"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
