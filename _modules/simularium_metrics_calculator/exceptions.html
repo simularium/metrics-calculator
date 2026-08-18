@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2025.12.19 -->
-        <title>simularium_metrics_calculator.exceptions - simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</title>
+        <title>simularium_metrics_calculator.exceptions - simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</div></a>
+      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -245,16 +245,16 @@
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.exceptions.MetricNotFoundError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">MetricNotFoundError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        This exception is intended to communicate that the requested metric ID</span>
 <span class="sd">        does not exist in the metrics registry.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metric_id</span> <span class="o">=</span> <span class="n">metric_id</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Cannot create plot: Metric ID = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_id</span><span class="si">}</span><span class="s2"> not found in registry.&quot;</span>
+            <span class="sa">f</span><span class="s2">"Cannot create plot: Metric ID = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_id</span><span class="si">}</span><span class="s2"> not found in registry."</span>
         <span class="p">)</span></div>
 
 
@@ -263,19 +263,19 @@
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.exceptions.InconsistentPlotTypeError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">InconsistentPlotTypeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="p">:</span> <span class="n">PLOT_TYPE</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        This exception is intended to communicate that the type of a plot</span>
 <span class="sd">        is not consistent with the number of metrics provided.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plot_type</span> <span class="o">=</span> <span class="n">plot_type</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_type</span> <span class="o">==</span> <span class="n">PLOT_TYPE</span><span class="o">.</span><span class="n">HISTOGRAM</span><span class="p">:</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;Plot type is histogram and more than one metric was provided&quot;</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="s2">"Plot type is histogram and more than one metric was provided"</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="s2">&quot;Plot type is scatter and only one metric was provided&quot;</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Cannot create plot: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">.&quot;</span></div>
+            <span class="n">error</span> <span class="o">=</span> <span class="s2">"Plot type is scatter and only one metric was provided"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Cannot create plot: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">."</span></div>
 
 
 
@@ -283,18 +283,18 @@
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.exceptions.IncompatibleMetricsError">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">IncompatibleMetricsError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_metric_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">y_metric_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        This exception is intended to communicate that the requested metrics</span>
-<span class="sd">        have incompatible metric types and can&#39;t be plotted against each other.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        have incompatible metric types and can't be plotted against each other.</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x_metric_name</span> <span class="o">=</span> <span class="n">x_metric_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y_metric_name</span> <span class="o">=</span> <span class="n">y_metric_name</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Cannot create plot: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y_metric_name</span><span class="si">}</span><span class="s2"> and &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x_metric_name</span><span class="si">}</span><span class="s2"> are incompatible.&quot;</span>
+            <span class="sa">f</span><span class="s2">"Cannot create plot: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y_metric_name</span><span class="si">}</span><span class="s2"> and "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x_metric_name</span><span class="si">}</span><span class="s2"> are incompatible."</span>
         <span class="p">)</span></div>
 
 </pre></div>
@@ -329,7 +329,7 @@
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=a0165f5b"></script>
+</div><script src="../../_static/documentation_options.js?v=7a93431c"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>

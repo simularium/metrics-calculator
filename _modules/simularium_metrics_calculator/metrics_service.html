@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2025.12.19 -->
-        <title>simularium_metrics_calculator.metrics_service - simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</title>
+        <title>simularium_metrics_calculator.metrics_service - simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -161,7 +161,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</div></a>
+      <a href="../../index.html"><div class="brand">simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -182,7 +182,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
-  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+gef20902a7 documentation</span>
+  <span class="sidebar-brand-text">simularium_metrics_calculator 0.1.dev1+ga871cec1e documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -255,17 +255,17 @@
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">MetricsService</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        This object lists and calculates metrics</span>
 <span class="sd">        that can be plotted in the Simularium Viewer.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_create_metrics_registry</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_create_metrics_registry</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get a dict mapping metric index (as per-session unique ID)</span>
 <span class="sd">        to info about each available metric.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">metric_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metrics_list</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric_info</span>
@@ -273,8 +273,8 @@
 <div class="viewcode-block" id="MetricsService.metric_info_for_id">
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.metric_info_for_id">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">metric_info_for_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetricInfo</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a MetricInfo for a given metric&#39;s session id.</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Get a MetricInfo for a given metric's session id.</span>
 <span class="sd">        Raise an error if the metric_id is not found in the registry.</span>
 
 <span class="sd">        Parameters</span>
@@ -286,7 +286,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        MetricInfo</span>
 <span class="sd">            Info about the requested metric.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">metric_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">MetricNotFoundError</span><span class="p">(</span><span class="n">metric_id</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="p">[</span><span class="n">metric_id</span><span class="p">]</span></div>
@@ -295,7 +295,7 @@
 <div class="viewcode-block" id="MetricsService.available_metrics">
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.available_metrics">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">available_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Get the IDs and display names for the metrics</span>
 <span class="sd">        that are compatible with the given type of data.</span>
 
@@ -305,11 +305,11 @@
 <span class="sd">            A list of info about each available metric,</span>
 <span class="sd">            including session ID, display name, metric type,</span>
 <span class="sd">            and excluded axes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">uid</span><span class="p">,</span> <span class="n">metric_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_registry</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">info</span> <span class="o">=</span> <span class="n">metric_info</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-            <span class="n">info</span><span class="p">[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uid</span>
+            <span class="n">info</span><span class="p">[</span><span class="s2">"uid"</span><span class="p">]</span> <span class="o">=</span> <span class="n">uid</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
@@ -317,7 +317,7 @@
 <div class="viewcode-block" id="MetricsService.plot_data">
 <a class="viewcode-back" href="../../simularium_metrics_calculator.html#simularium_metrics_calculator.metrics_service.MetricsService.plot_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlotInfo</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Add plots with the given configuration.</span>
 
 <span class="sd">        Parameters</span>
@@ -331,12 +331,12 @@
 <span class="sd">        -------</span>
 <span class="sd">        str</span>
 <span class="sd">            A JSON string of the plot(s) in simularium format.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">plot_dicts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_dicts</span><span class="p">(</span><span class="n">traj_data</span><span class="p">,</span> <span class="n">plots</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
             <span class="p">{</span>
-                <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">CURRENT_VERSION</span><span class="o">.</span><span class="n">PLOT_DATA</span><span class="p">,</span>
-                <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">plot_dicts</span><span class="p">,</span>
+                <span class="s2">"version"</span><span class="p">:</span> <span class="n">CURRENT_VERSION</span><span class="o">.</span><span class="n">PLOT_DATA</span><span class="p">,</span>
+                <span class="s2">"data"</span><span class="p">:</span> <span class="n">plot_dicts</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span></div>
 
@@ -344,9 +344,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_plot_dicts</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PlotInfo</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Calculate each plot and get a dict for each.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">plot_info</span> <span class="ow">in</span> <span class="n">plots</span><span class="p">:</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_plot</span><span class="p">(</span><span class="n">traj_data</span><span class="p">,</span> <span class="n">plot_info</span><span class="p">))</span>
@@ -355,9 +355,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_plot</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">traj_data</span><span class="p">:</span> <span class="n">TrajectoryData</span><span class="p">,</span> <span class="n">plot_info</span><span class="p">:</span> <span class="n">PlotInfo</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Calculate a plot with the given configuration.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># get metric info</span>
         <span class="n">x_metric_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric_info_for_id</span><span class="p">(</span><span class="n">plot_info</span><span class="o">.</span><span class="n">metric_id_x</span><span class="p">)</span>
         <span class="n">y_metric_info</span> <span class="o">=</span> <span class="kc">None</span>
@@ -374,7 +374,7 @@
         <span class="k">if</span> <span class="n">y_metric_info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># HISTOGRAM</span>
             <span class="n">plot_data</span> <span class="o">=</span> <span class="n">HistogramPlotData</span><span class="p">(</span>
                 <span class="n">title</span><span class="o">=</span><span class="n">plot_info</span><span class="o">.</span><span class="n">display_title</span><span class="p">,</span>
-                <span class="n">xaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x_metric_title</span><span class="si">}{</span><span class="n">x_units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">xaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x_metric_title</span><span class="si">}{</span><span class="n">x_units</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
                 <span class="n">traces</span><span class="o">=</span><span class="n">x_traces</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="k">return</span> <span class="n">HistogramPlotReader</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">plot_data</span><span class="p">)</span>
@@ -388,8 +388,8 @@
             <span class="c1"># create and add scatter plot</span>
             <span class="n">plot_data</span> <span class="o">=</span> <span class="n">ScatterPlotData</span><span class="p">(</span>
                 <span class="n">title</span><span class="o">=</span><span class="n">plot_info</span><span class="o">.</span><span class="n">display_title</span><span class="p">,</span>
-                <span class="n">xaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x_metric_title</span><span class="si">}{</span><span class="n">x_units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-                <span class="n">yaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">y_metric_title</span><span class="si">}{</span><span class="n">y_units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">xaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x_metric_title</span><span class="si">}{</span><span class="n">x_units</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="n">yaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">y_metric_title</span><span class="si">}{</span><span class="n">y_units</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
                 <span class="n">xtrace</span><span class="o">=</span><span class="n">x_trace</span><span class="p">,</span>
                 <span class="n">ytraces</span><span class="o">=</span><span class="n">y_traces</span><span class="p">,</span>
                 <span class="n">render_mode</span><span class="o">=</span><span class="n">plot_info</span><span class="o">.</span><span class="n">scatter_plot_mode</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
@@ -428,7 +428,7 @@
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=a0165f5b"></script>
+</div><script src="../../_static/documentation_options.js?v=7a93431c"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
